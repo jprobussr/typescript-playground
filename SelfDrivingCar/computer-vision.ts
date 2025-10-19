@@ -5,3 +5,5 @@ export function getObstacleEvents() {
     ObstacleRight: !coinFlip,
   };
 }
+
+
