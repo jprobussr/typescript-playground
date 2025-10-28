@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class PassWordGenerator {
+class PasswordGenerator {
     constructor(length) {
         this.passwordLength = 12;
         this.passwordLength = length;
@@ -25,9 +25,6 @@ class PassWordGenerator {
         return array[randomIndex];
     }
 }
-const myPassWordGenerator = new PassWordGenerator(20);
-const password = myPassWordGenerator.generatePassword();
-console.log(`
-Generated password:
-${password}
-`);
+const myPasswordGenerator = new PasswordGenerator(30);
+const password = myPasswordGenerator.generatePassword();
+console.log(`Generate Password: ${password}.`);
