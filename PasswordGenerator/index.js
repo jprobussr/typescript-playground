@@ -13,7 +13,7 @@ class PasswordGenerator {
         return password;
     }
     generateRandomCharacter() {
-        const characters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+        const characters = 'ghost'.split('');
         const randomCharacter = this.getRandomItem(characters);
         if (Math.random() > 0.5) {
             return randomCharacter.toUpperCase();
@@ -27,4 +27,4 @@ class PasswordGenerator {
 }
 const myPasswordGenerator = new PasswordGenerator(30);
 const password = myPasswordGenerator.generatePassword();
-console.log(`Generate Password: ${password}.`);
+console.log(`Generated Password: ${password}`);

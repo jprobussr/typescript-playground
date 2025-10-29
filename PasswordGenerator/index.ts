@@ -7,22 +7,22 @@ class PasswordGenerator {
     this.passwordLength = length;
   }
 
-  generatePassword():string {
+  public generatePassword(): string {
     let password = '';
+
     for (let i = 0; i < this.passwordLength; i++) {
-      password += this.generateRandomCharacter()
+      password += this.generateRandomCharacter();
     }
     return password;
   }
 
   generateRandomCharacter(): string {
-    const characters = 'abcdefghijklmnopqrstuvwxyz'.split('')
-    const randomCharacter = this.getRandomItem(characters)
+    const characters = 'ghost'.split('');
+    const randomCharacter = this.getRandomItem(characters);
 
     if (Math.random() > 0.5) {
       return randomCharacter.toUpperCase();
     }
-
     return randomCharacter;
   }
 
@@ -36,4 +36,4 @@ class PasswordGenerator {
 const myPasswordGenerator = new PasswordGenerator(30);
 const password = myPasswordGenerator.generatePassword();
 
-console.log(`Generate Password: ${password}.`);
+console.log(`Generated Password: ${password}`);
