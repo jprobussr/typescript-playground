@@ -503,4 +503,3 @@ exports.wordList = [
     'menopause',
     'banned',
 ];
-console.log(exports.wordList);

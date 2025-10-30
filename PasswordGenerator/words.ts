@@ -502,4 +502,3 @@ export const wordList = [
 ];
 
 
-console.log(wordList)

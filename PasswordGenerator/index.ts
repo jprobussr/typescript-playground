@@ -1,7 +1,7 @@
 import { wordList } from './words';
 
 class PasswordGenerator {
-  passwordLength: number = 12;
+  readonly passwordLength: number = 12;
 
   constructor(length: number) {
     this.passwordLength = length;
@@ -13,27 +13,44 @@ class PasswordGenerator {
     for (let i = 0; i < this.passwordLength; i++) {
       password += this.generateRandomCharacter();
     }
+
     return password;
   }
 
-  generateRandomCharacter(): string {
-    const characters = 'ghost'.split('');
+  private generateRandomCharacter(): string {
+    const characters = 'abcdefghijklmnopqrstuvwxyz'.split('');
     const randomCharacter = this.getRandomItem(characters);
 
     if (Math.random() > 0.5) {
       return randomCharacter.toUpperCase();
     }
+
     return randomCharacter;
   }
 
-  getRandomItem(array: string[]): string {
-    const randomIndex = Math.floor(Math.random() * array.length);
-    return array[randomIndex];
+  protected getRandomItem(array: string[]): string {
+    const randIndex = Math.floor(Math.random() * array.length);
+    return array[randIndex];
   }
 }
 
+class ReadablePasswordGenerator extends PasswordGenerator {
+  private generateRandomWord(): string {
+    return this.getRandomItem(wordList);
+  }
 
-const myPasswordGenerator = new PasswordGenerator(30);
-const password = myPasswordGenerator.generatePassword();
+  public generatePassword(): string {
+    let password = '';
+    const words: string[] = [];
 
-console.log(`Generated Password: ${password}`);
+    while (password.length < this.passwordLength) {
+      const word = this.generateRandomWord();
+      words.push(word);
+      password = words.join('=');
+    }
+    return password;
+  }
+}
+
+const readablePassword = new ReadablePasswordGenerator(30);
+console.log(readablePassword.generatePassword())

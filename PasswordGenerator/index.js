@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const words_1 = require("./words");
 class PasswordGenerator {
     constructor(length) {
         this.passwordLength = 12;
@@ -13,7 +14,7 @@ class PasswordGenerator {
         return password;
     }
     generateRandomCharacter() {
-        const characters = 'ghost'.split('');
+        const characters = 'abcdefghijklmnopqrstuvwxyz'.split('');
         const randomCharacter = this.getRandomItem(characters);
         if (Math.random() > 0.5) {
             return randomCharacter.toUpperCase();
@@ -21,10 +22,24 @@ class PasswordGenerator {
         return randomCharacter;
     }
     getRandomItem(array) {
-        const randomIndex = Math.floor(Math.random() * array.length);
-        return array[randomIndex];
+        const randIndex = Math.floor(Math.random() * array.length);
+        return array[randIndex];
     }
 }
-const myPasswordGenerator = new PasswordGenerator(30);
-const password = myPasswordGenerator.generatePassword();
-console.log(`Generated Password: ${password}`);
+class ReadablePasswordGenerator extends PasswordGenerator {
+    generateRandomWord() {
+        return this.getRandomItem(words_1.wordList);
+    }
+    generatePassword() {
+        let password = '';
+        const words = [];
+        while (password.length < this.passwordLength) {
+            const word = this.generateRandomWord();
+            words.push(word);
+            password = words.join('=');
+        }
+        return password;
+    }
+}
+const readablePassword = new ReadablePasswordGenerator(30);
+console.log(readablePassword.generatePassword());
