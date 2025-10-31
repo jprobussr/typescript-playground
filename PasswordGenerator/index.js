@@ -16,14 +16,14 @@ class PasswordGenerator {
     generateRandomCharacter() {
         const characters = 'abcdefghijklmnopqrstuvwxyz'.split('');
         const randomCharacter = this.getRandomItem(characters);
-        if (Math.random() > 0.5) {
+        if (Math.random() > 5) {
             return randomCharacter.toUpperCase();
         }
         return randomCharacter;
     }
     getRandomItem(array) {
-        const randIndex = Math.floor(Math.random() * array.length);
-        return array[randIndex];
+        const randomIndex = Math.floor(Math.random() * array.length);
+        return array[randomIndex];
     }
 }
 class ReadablePasswordGenerator extends PasswordGenerator {
@@ -36,7 +36,7 @@ class ReadablePasswordGenerator extends PasswordGenerator {
         while (password.length < this.passwordLength) {
             const word = this.generateRandomWord();
             words.push(word);
-            password = words.join('=');
+            password = words.join('-');
         }
         return password;
     }
