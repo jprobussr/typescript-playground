@@ -3,10 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const words_1 = require("./words");
 class PasswordGenerator {
     constructor(length) {
-        this.passwordLength = 10;
+        this.passwordLength = 12;
         this.passwordLength = length;
     }
-    generatePassword() {
+    genteratePassword() {
         let password = '';
         for (let i = 0; i < this.passwordLength; i++) {
             password += this.generateRandomCharacter();
@@ -41,5 +41,5 @@ class ReadablePasswordGenerator extends PasswordGenerator {
         return password;
     }
 }
-const readablePassword = new ReadablePasswordGenerator(100);
+const readablePassword = new ReadablePasswordGenerator(30);
 console.log(readablePassword.generatePassword());

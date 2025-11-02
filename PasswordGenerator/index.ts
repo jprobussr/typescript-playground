@@ -1,13 +1,13 @@
 import { wordList } from './words';
 
 class PasswordGenerator {
-  readonly passwordLength: number = 10;
+  readonly passwordLength: number = 12;
 
   constructor(length: number) {
     this.passwordLength = length;
   }
 
-  public generatePassword(): string {
+  public genteratePassword(): string {
     let password = '';
 
     for (let i = 0; i < this.passwordLength; i++) {
@@ -19,7 +19,6 @@ class PasswordGenerator {
 
   private generateRandomCharacter(): string {
     const characters = 'abcdefghijklmnopqrstuvwxyz'.split('');
-
     const randomCharacter = this.getRandomItem(characters);
 
     if (Math.random() > 0.5) {
@@ -55,5 +54,5 @@ class ReadablePasswordGenerator extends PasswordGenerator {
   }
 }
 
-const readablePassword = new ReadablePasswordGenerator(100);
+const readablePassword = new ReadablePasswordGenerator(30);
 console.log(readablePassword.generatePassword());
