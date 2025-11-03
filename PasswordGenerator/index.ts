@@ -7,7 +7,7 @@ class PasswordGenerator {
     this.passwordLength = length;
   }
 
-  public genteratePassword(): string {
+  public generatePassword(): string {
     let password = '';
 
     for (let i = 0; i < this.passwordLength; i++) {
@@ -21,7 +21,7 @@ class PasswordGenerator {
     const characters = 'abcdefghijklmnopqrstuvwxyz'.split('');
     const randomCharacter = this.getRandomItem(characters);
 
-    if (Math.random() > 0.5) {
+    if (Math.random() > 0.7) {
       return randomCharacter.toUpperCase();
     }
 
@@ -33,6 +33,9 @@ class PasswordGenerator {
     return array[randomIndex];
   }
 }
+
+const basePassword = new PasswordGenerator(33);
+console.log(basePassword.generatePassword());
 
 class ReadablePasswordGenerator extends PasswordGenerator {
   private generateRandomWord(): string {
@@ -46,13 +49,13 @@ class ReadablePasswordGenerator extends PasswordGenerator {
     while (password.length < this.passwordLength) {
       const word = this.generateRandomWord();
       words.push(word);
-
-      password = words.join('-');
+      password = words.join('-')
     }
 
     return password;
   }
 }
 
-const readablePassword = new ReadablePasswordGenerator(30);
-console.log(readablePassword.generatePassword());
+
+const passwordAdmin = new ReadablePasswordGenerator(55);
+console.log(passwordAdmin.generatePassword());
