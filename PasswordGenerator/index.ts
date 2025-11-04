@@ -1,7 +1,7 @@
 import { wordList } from './words';
 
 class PasswordGenerator {
-  readonly passwordLength: number = 12;
+  readonly passwordLength: number = 15;
 
   constructor(length: number) {
     this.passwordLength = length;
@@ -21,7 +21,7 @@ class PasswordGenerator {
     const characters = 'abcdefghijklmnopqrstuvwxyz'.split('');
     const randomCharacter = this.getRandomItem(characters);
 
-    if (Math.random() > 0.7) {
+    if (Math.random() < 0.5) {
       return randomCharacter.toUpperCase();
     }
 
@@ -34,8 +34,8 @@ class PasswordGenerator {
   }
 }
 
-const basePassword = new PasswordGenerator(33);
-console.log(basePassword.generatePassword());
+const passAdmin = new PasswordGenerator(11);
+console.log(passAdmin.generatePassword());
 
 class ReadablePasswordGenerator extends PasswordGenerator {
   private generateRandomWord(): string {
@@ -49,13 +49,12 @@ class ReadablePasswordGenerator extends PasswordGenerator {
     while (password.length < this.passwordLength) {
       const word = this.generateRandomWord();
       words.push(word);
-      password = words.join('-')
+      password = words.join('-');
     }
 
     return password;
   }
 }
 
-
-const passwordAdmin = new ReadablePasswordGenerator(55);
-console.log(passwordAdmin.generatePassword());
+const adminPass = new ReadablePasswordGenerator(40);
+console.log(adminPass.generatePassword());
