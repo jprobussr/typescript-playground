@@ -16,18 +16,18 @@ class PasswordGenerator {
     generateRandomCharacter() {
         const characters = 'abcdefghijklmnopqrstuvwxyz'.split('');
         const randomCharacter = this.getRandomItem(characters);
-        if (Math.random() < 0.5) {
+        if (Math.random() > 0.5) {
             return randomCharacter.toUpperCase();
         }
         return randomCharacter;
     }
     getRandomItem(array) {
-        const randomInex = Math.floor(Math.random() * array.length);
-        return array[randomInex];
+        const randomIndex = Math.floor(Math.random() * array.length);
+        return array[randomIndex];
     }
 }
-const adminPass = new PasswordGenerator(59);
-console.log(adminPass.generatePassword());
+const basePassword = new PasswordGenerator(15);
+console.log(basePassword.generatePassword());
 class ReadablePasswordGenerator extends PasswordGenerator {
     generateRandomWord() {
         return this.getRandomItem(words_1.wordList);
@@ -43,5 +43,5 @@ class ReadablePasswordGenerator extends PasswordGenerator {
         return password;
     }
 }
-const pass3 = new ReadablePasswordGenerator(55);
-console.log(pass3.generatePassword());
+const readablePasswordGenerator = new ReadablePasswordGenerator(12);
+console.log(readablePasswordGenerator.generatePassword());

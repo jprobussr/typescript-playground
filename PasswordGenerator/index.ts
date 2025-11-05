@@ -1,4 +1,4 @@
-import { wordList } from "./words";
+import { wordList } from './words';
 
 class PasswordGenerator {
   readonly passwordLength: number = 12;
@@ -21,7 +21,7 @@ class PasswordGenerator {
     const characters = 'abcdefghijklmnopqrstuvwxyz'.split('');
     const randomCharacter = this.getRandomItem(characters);
 
-    if (Math.random() < 0.5) {
+    if (Math.random() > 0.5) {
       return randomCharacter.toUpperCase();
     }
 
@@ -29,13 +29,13 @@ class PasswordGenerator {
   }
 
   protected getRandomItem(array: string[]): string {
-    const randomInex = Math.floor(Math.random() * array.length);
-    return array[randomInex];
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return array[randomIndex];
   }
 }
 
-const adminPass = new PasswordGenerator(59);
-console.log(adminPass.generatePassword());
+const basePassword = new PasswordGenerator(15);
+console.log(basePassword.generatePassword());
 
 class ReadablePasswordGenerator extends PasswordGenerator {
   private generateRandomWord(): string {
@@ -43,8 +43,8 @@ class ReadablePasswordGenerator extends PasswordGenerator {
   }
 
   public generatePassword(): string {
-    let password: string = '';
-    const words: string[] = []
+    let password = '';
+    const words: string[] = [];
 
     while (password.length < this.passwordLength) {
       const word = this.generateRandomWord();
@@ -56,5 +56,5 @@ class ReadablePasswordGenerator extends PasswordGenerator {
   }
 }
 
-const pass3 = new ReadablePasswordGenerator(55);
-console.log(pass3.generatePassword());
+const readablePasswordGenerator = new ReadablePasswordGenerator(12)
+console.log(readablePasswordGenerator.generatePassword());
