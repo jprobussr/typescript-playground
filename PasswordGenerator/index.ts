@@ -1,7 +1,7 @@
-import { wordList } from './words';
+import { wordList } from "./words";
 
 class PasswordGenerator {
-  readonly passwordLength: number = 15;
+  readonly passwordLength: number = 12;
 
   constructor(length: number) {
     this.passwordLength = length;
@@ -29,13 +29,13 @@ class PasswordGenerator {
   }
 
   protected getRandomItem(array: string[]): string {
-    const randomIndex = Math.floor(Math.random() * array.length);
-    return array[randomIndex];
+    const randomInex = Math.floor(Math.random() * array.length);
+    return array[randomInex];
   }
 }
 
-const passAdmin = new PasswordGenerator(11);
-console.log(passAdmin.generatePassword());
+const adminPass = new PasswordGenerator(59);
+console.log(adminPass.generatePassword());
 
 class ReadablePasswordGenerator extends PasswordGenerator {
   private generateRandomWord(): string {
@@ -43,8 +43,8 @@ class ReadablePasswordGenerator extends PasswordGenerator {
   }
 
   public generatePassword(): string {
-    let password = '';
-    const words: string[] = [];
+    let password: string = '';
+    const words: string[] = []
 
     while (password.length < this.passwordLength) {
       const word = this.generateRandomWord();
@@ -56,5 +56,5 @@ class ReadablePasswordGenerator extends PasswordGenerator {
   }
 }
 
-const adminPass = new ReadablePasswordGenerator(40);
-console.log(adminPass.generatePassword());
+const pass3 = new ReadablePasswordGenerator(55);
+console.log(pass3.generatePassword());
