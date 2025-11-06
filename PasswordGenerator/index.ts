@@ -21,7 +21,7 @@ class PasswordGenerator {
     const characters = 'abcdefghijklmnopqrstuvwxyz'.split('');
     const randomCharacter = this.getRandomItem(characters);
 
-    if (Math.random() > 0.5) {
+    if (Math.random() < 0.5) {
       return randomCharacter.toUpperCase();
     }
 
@@ -34,7 +34,7 @@ class PasswordGenerator {
   }
 }
 
-const basePassword = new PasswordGenerator(15);
+const basePassword = new PasswordGenerator(40);
 console.log(basePassword.generatePassword());
 
 class ReadablePasswordGenerator extends PasswordGenerator {
@@ -56,5 +56,5 @@ class ReadablePasswordGenerator extends PasswordGenerator {
   }
 }
 
-const readablePasswordGenerator = new ReadablePasswordGenerator(12)
-console.log(readablePasswordGenerator.generatePassword());
+const adminPassword = new ReadablePasswordGenerator(44);
+console.log(adminPassword.generatePassword());
