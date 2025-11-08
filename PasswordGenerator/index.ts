@@ -34,13 +34,12 @@ class PasswordGenerator {
   }
 }
 
-const basePassword = new PasswordGenerator(20);
-console.log(basePassword.generatePassword());
-
+const basePass = new PasswordGenerator(40);
+console.log(basePass.generatePassword());
 
 class ReadablePasswordGenerator extends PasswordGenerator {
   private generateRandomWord(): string {
-    return this.getRandomItem(wordList);
+    return this.getRandomItem(wordList)
   }
 
   public generatePassword(): string {
@@ -50,12 +49,12 @@ class ReadablePasswordGenerator extends PasswordGenerator {
     while (password.length < this.passwordLength) {
       const word = this.generateRandomWord();
       words.push(word);
-      password = words.join('-');
+      password = words.join('-')
     }
 
     return password;
   }
 }
 
-let adminPass = new ReadablePasswordGenerator(40);
+const adminPass = new ReadablePasswordGenerator(44);
 console.log(adminPass.generatePassword());

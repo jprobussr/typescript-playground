@@ -26,8 +26,8 @@ class PasswordGenerator {
         return array[randomIndex];
     }
 }
-const basePassword = new PasswordGenerator(20);
-console.log(basePassword.generatePassword());
+const basePass = new PasswordGenerator(40);
+console.log(basePass.generatePassword());
 class ReadablePasswordGenerator extends PasswordGenerator {
     generateRandomWord() {
         return this.getRandomItem(words_1.wordList);
@@ -43,5 +43,5 @@ class ReadablePasswordGenerator extends PasswordGenerator {
         return password;
     }
 }
-let adminPass = new ReadablePasswordGenerator(40);
+const adminPass = new ReadablePasswordGenerator(44);
 console.log(adminPass.generatePassword());
