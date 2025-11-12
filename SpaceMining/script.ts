@@ -7,15 +7,15 @@ type Item = {
 type Diggable = Item | null;
 
 const isItem = (diggable: Diggable): diggable is Item => {
-  return diggable != null;
+  return diggable !== null;
 };
 
 class Mine {
   readonly possible = [
     { kind: 'rock' },
-    { kind: 'iron', value: 10 },
-    { kind: 'gold', value: 20 },
-    { kind: 'platinum', value: 30 },
+    { kind: 'iron', value: 40 },
+    { kind: 'gold', value: 50 },
+    { kind: 'platinum', value: 70 },
   ];
 
   count: number;
@@ -29,7 +29,7 @@ class Mine {
       return null;
     }
     this.count--;
-    return this.possible[Math.floor(Math.random() * this.possible.length)];
+    return this.possible[Math.floor(Math.random()) * this.possible.length];
   }
 
   isEmpty(): boolean {
