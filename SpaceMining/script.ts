@@ -1,21 +1,25 @@
 // Space Mining
 
+// Define the basic shape
 type Item = {
   kind: string;
 };
 
+//Define what digging can return
 type Diggable = Item | null;
 
+// Create type guard to tell us if we really found an item.
 const isItem = (diggable: Diggable): diggable is Item => {
   return diggable !== null;
-};
+}
 
+// Build Mine Class
 class Mine {
   readonly possible = [
     { kind: 'rock' },
     { kind: 'iron', value: 40 },
-    { kind: 'gold', value: 50 },
-    { kind: 'platinum', value: 70 },
+    { kind: 'silver', value: 50 },
+    { kind: 'platinum', value: 60 },
   ];
 
   count: number;
