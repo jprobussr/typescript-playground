@@ -1,15 +1,14 @@
 "use strict";
-// Space Mining
 const isItem = (diggable) => {
-    return diggable != null;
+    return diggable !== null;
 };
 class Mine {
     constructor() {
         this.possible = [
             { kind: 'rock' },
-            { kind: 'iron', value: 10 },
-            { kind: 'gold', value: 20 },
-            { kind: 'platinum', value: 30 },
+            { kind: 'iron', value: 22 },
+            { kind: 'gold', value: 50 },
+            { kind: 'platinum', value: 100 },
         ];
         this.count = Math.floor(Math.random() * 10);
     }
@@ -31,6 +30,6 @@ while (!mine.isEmpty()) {
         console.log(find.kind);
     }
     else {
-        console.log('You did not find nothing. Back to work!');
+        console.log('Don\'t give up! Can you dig it!');
     }
 }

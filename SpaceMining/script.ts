@@ -1,25 +1,19 @@
-// Space Mining
-
-// Define the basic shape
 type Item = {
   kind: string;
 };
 
-//Define what digging can return
 type Diggable = Item | null;
 
-// Create type guard to tell us if we really found an item.
 const isItem = (diggable: Diggable): diggable is Item => {
   return diggable !== null;
-}
+};
 
-// Build Mine Class
 class Mine {
   readonly possible = [
     { kind: 'rock' },
-    { kind: 'iron', value: 40 },
-    { kind: 'silver', value: 50 },
-    { kind: 'platinum', value: 60 },
+    { kind: 'iron', value: 22 },
+    { kind: 'gold', value: 50 },
+    { kind: 'platinum', value: 100 },
   ];
 
   count: number;
@@ -33,7 +27,7 @@ class Mine {
       return null;
     }
     this.count--;
-    return this.possible[Math.floor(Math.random()) * this.possible.length];
+    return this.possible[Math.floor(Math.random() * this.possible.length)];
   }
 
   isEmpty(): boolean {
@@ -48,6 +42,6 @@ while (!mine.isEmpty()) {
   if (isItem(find)) {
     console.log(find.kind);
   } else {
-    console.log('You did not find nothing. Back to work!');
+    console.log('Don\'t give up! Can you dig it!');
   }
 }
