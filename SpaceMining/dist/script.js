@@ -1,14 +1,14 @@
 "use strict";
 const isItem = (diggable) => {
-    return diggable !== null;
+    return diggable != null;
 };
 class Mine {
     constructor() {
         this.possible = [
             { kind: 'rock' },
-            { kind: 'iron', value: 22 },
+            { kind: 'iron', value: 40 },
             { kind: 'gold', value: 50 },
-            { kind: 'platinum', value: 100 },
+            { kind: 'platinum', value: 60 },
         ];
         this.count = Math.floor(Math.random() * 10);
     }
@@ -19,17 +19,17 @@ class Mine {
         this.count--;
         return this.possible[Math.floor(Math.random() * this.possible.length)];
     }
-    isEmpty() {
+    isMineEmpty() {
         return this.count === 0;
     }
 }
 let mine = new Mine();
-while (!mine.isEmpty()) {
+while (!mine.isMineEmpty()) {
     let find = mine.dig();
     if (isItem(find)) {
         console.log(find.kind);
     }
     else {
-        console.log('Don\'t give up! Can you dig it!');
+        console.log('You did not find nothing!');
     }
 }
