@@ -7,8 +7,8 @@ class Mine {
         this.possible = [
             { kind: 'rock' },
             { kind: 'iron', value: 40 },
-            { kind: 'gold', value: 50 },
-            { kind: 'platinum', value: 60 },
+            { kind: 'gold', value: 60 },
+            { kind: 'platinum', value: 90 },
         ];
         this.count = Math.floor(Math.random() * 10);
     }
@@ -19,17 +19,17 @@ class Mine {
         this.count--;
         return this.possible[Math.floor(Math.random() * this.possible.length)];
     }
-    isMineEmpty() {
+    isEmpty() {
         return this.count === 0;
     }
 }
 let mine = new Mine();
-while (!mine.isMineEmpty()) {
+while (!mine.isEmpty()) {
     let find = mine.dig();
     if (isItem(find)) {
         console.log(find.kind);
     }
     else {
-        console.log('You did not find nothing!');
+        console.log('Nothing');
     }
 }
