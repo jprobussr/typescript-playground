@@ -4,28 +4,25 @@ const conversionRates = {
   usd: 1,
 };
 
-type CurrencyCode = keyof typeof conversionRates;
-
-class Wallet<Currency extends CurrencyCode> {
-  readonly currency: Currency;
+class Wallet {
+  readonly currency: string;
   private stored: number;
 
-  constructor(currency: Currency, remaining: number) {
+  constructor(currency: string, remaining: number) {
     this.currency = currency;
     this.stored = remaining;
   }
 
   spend(amount: number) {
-    if (this.stored < amount) {
-      return false;
-    }
+    if (this.stored < amount) return false;
     this.stored -= amount;
     return true;
   }
 
-  transferTo<NewCurrency extends CurrencyCode>(newCurrency: NewCurrency) {
+  transferTo(newCurrency: string) {
     const newStored =
-      (this.stored / conversionRates.usd) * conversionRates[newCurrency];
+      (this.stored / conversionRates.usd) *
+      conversionRates[newCurrency as keyof typeof conversionRates];
 
     this.stored = 0;
 
@@ -33,16 +30,13 @@ class Wallet<Currency extends CurrencyCode> {
   }
 }
 
-interface PriceTag<Currency extends CurrencyCode> {
-  currency: Currency;
+interface PriceTag {
+  currency: string;
   item: string;
   price: number;
 }
 
-const purchaseInCurrency = <Currency extends CurrencyCode>(
-  wallet: Wallet<Currency>,
-  tag: PriceTag<Currency>
-) => {
+const purchaseInCurrency = (wallet: Wallet, tag: PriceTag) => {
   return wallet.spend(tag.price) && tag.item;
 };
 
@@ -51,14 +45,11 @@ const americanWallet = new Wallet('usd', 50);
 const hat = purchaseInCurrency(americanWallet, {
   currency: 'usd',
   item: 'cowboy hat',
-  price: 34.99,
+  price: 94.99,
 });
 
-const falafel = purchaseInCurrency<'euro'>(
-  americanWallet.transferTo('euro'), // creates new INR wallet
-  {
-    currency: 'euro',
-    item: 'falafel',
-    price: 10,
-  }
-);
+if (hat) {
+  console.log('I purchased a hat... yee-haw, cowboy.');
+} else {
+  console.log('I couldn\'t afford that at this time.');
+}

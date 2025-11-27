@@ -10,9 +10,8 @@ class Wallet {
         this.stored = remaining;
     }
     spend(amount) {
-        if (this.stored < amount) {
+        if (this.stored < amount)
             return false;
-        }
         this.stored -= amount;
         return true;
     }
@@ -30,22 +29,11 @@ const americanWallet = new Wallet('usd', 50);
 const hat = purchaseInCurrency(americanWallet, {
     currency: 'usd',
     item: 'cowboy hat',
-    price: 34.99,
-});
-const falafel = purchaseInCurrency(americanWallet.transferTo('inr'), {
-    currency: 'euro',
-    item: 'falafel',
-    price: 10,
+    price: 94.99,
 });
 if (hat) {
-    console.log('I purchased a hat! 🤠');
+    console.log('I purchased a hat... yee-haw, cowboy.');
 }
 else {
-    console.log("I couldn't afford the hat...");
-}
-if (falafel) {
-    console.log('I purchased falafel! 🥙');
-}
-else {
-    console.log("I couldn't afford the falafel...");
+    console.log('I couldn\'t afford that at this time.');
 }
