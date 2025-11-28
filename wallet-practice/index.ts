@@ -4,52 +4,22 @@ const conversionRates = {
   usd: 1,
 };
 
-class Wallet {
-  readonly currency: string;
+type CurrencyCode = keyof typeof conversionRates;
+
+class Wallet<Currency extends CurrencyCode> {
+  readonly currency: Currency;
   private stored: number;
 
-  constructor(currency: string, remaining: number) {
+  constructor(currency: Currency, remaining: number) {
     this.currency = currency;
     this.stored = remaining;
   }
 
   spend(amount: number) {
-    if (this.stored < amount) return false;
+    if (this.stored < amount) {
+      return false;
+    }
     this.stored -= amount;
     return true;
   }
-
-  transferTo(newCurrency: string) {
-    const newStored =
-      (this.stored / conversionRates.usd) *
-      conversionRates[newCurrency as keyof typeof conversionRates];
-
-    this.stored = 0;
-
-    return new Wallet(newCurrency, newStored);
-  }
-}
-
-interface PriceTag {
-  currency: string;
-  item: string;
-  price: number;
-}
-
-const purchaseInCurrency = (wallet: Wallet, tag: PriceTag) => {
-  return wallet.spend(tag.price) && tag.item;
-};
-
-const americanWallet = new Wallet('usd', 50);
-
-const hat = purchaseInCurrency(americanWallet, {
-  currency: 'usd',
-  item: 'cowboy hat',
-  price: 94.99,
-});
-
-if (hat) {
-  console.log('I purchased a hat... yee-haw, cowboy.');
-} else {
-  console.log('I couldn\'t afford that at this time.');
 }
