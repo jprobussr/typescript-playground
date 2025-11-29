@@ -22,4 +22,42 @@ class Wallet<Currency extends CurrencyCode> {
     this.stored -= amount;
     return true;
   }
+
+  transferTo<NewCurrency extends CurrencyCode>(
+    newCurrency: NewCurrency
+  ): Wallet<NewCurrency> {
+    const newStored =
+      (this.stored / conversionRates.usd) * conversionRates[newCurrency];
+
+    this.stored = 0;
+
+    return new Wallet(newCurrency, newStored);
+  }
+}
+
+interface PriceTag<Currency extends CurrencyCode> {
+  currency: Currency;
+  item: string;
+  price: number;
+}
+
+const purchaseInCurrency = <Currency extends CurrencyCode>(
+  wallet: Wallet<Currency>,
+  tag: PriceTag<Currency>
+) => {
+  return wallet.spend(tag.price) && tag.item;
+};
+
+const americanWallet = new Wallet('usd', 50);
+
+const hat = purchaseInCurrency(americanWallet, {
+  currency: 'usd',
+  item: 'cowboy hat',
+  price: 34.0,
+});
+
+if (hat) {
+  console.log('I purchased a hat!');
+} else {
+  console.log('I coundn\'t afford the hat...');
 }
