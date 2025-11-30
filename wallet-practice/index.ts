@@ -53,11 +53,23 @@ const americanWallet = new Wallet('usd', 50);
 const hat = purchaseInCurrency(americanWallet, {
   currency: 'usd',
   item: 'cowboy hat',
-  price: 34.0,
+  price: 34.99,
 });
 
 if (hat) {
-  console.log('I purchased a hat!');
+  console.log('I purchased a hat.');
 } else {
-  console.log('I coundn\'t afford the hat...');
+  console.log('I could not afford the hat at this time.');
+}
+
+const falafel = purchaseInCurrency<'euro'>(americanWallet.transferTo('euro'), {
+  currency: 'euro',
+  item: 'falafel',
+  price: 10,
+});
+
+if (falafel) {
+  console.log('I purchased a falafel.');
+} else {
+  console.log('I cound not afford the falafel at this time.');
 }

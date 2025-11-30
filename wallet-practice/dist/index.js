@@ -4,4 +4,47 @@ const conversionRates = {
     inr: 0.012,
     usd: 1,
 };
-console.log(conversionRates.euro);
+class Wallet {
+    constructor(currency, remaining) {
+        this.currency = currency;
+        this.stored = remaining;
+    }
+    spend(amount) {
+        if (this.stored < amount) {
+            return false;
+        }
+        this.stored -= amount;
+        return true;
+    }
+    transferTo(newCurrency) {
+        const newStored = (this.stored / conversionRates.usd) * conversionRates[newCurrency];
+        this.stored = 0;
+        return new Wallet(newCurrency, newStored);
+    }
+}
+const purchaseInCurrency = (wallet, tag) => {
+    return wallet.spend(tag.price) && tag.item;
+};
+const americanWallet = new Wallet('usd', 50);
+const hat = purchaseInCurrency(americanWallet, {
+    currency: 'usd',
+    item: 'cowboy hat',
+    price: 34.99,
+});
+if (hat) {
+    console.log('I purchased a hat.');
+}
+else {
+    console.log('I could not afford the hat at this time.');
+}
+const falafel = purchaseInCurrency(americanWallet.transferTo('inr'), {
+    currency: 'euro',
+    item: 'falafel',
+    price: 10,
+});
+if (falafel) {
+    console.log('I purchased a falafel.');
+}
+else {
+    console.log('I cound not afford the falafel at this time.');
+}
