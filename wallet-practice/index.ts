@@ -28,7 +28,6 @@ class Wallet<Currency extends CurrencyCode> {
   ): Wallet<NewCurrency> {
     const newStored =
       (this.stored / conversionRates.usd) * conversionRates[newCurrency];
-
     this.stored = 0;
 
     return new Wallet(newCurrency, newStored);
@@ -57,19 +56,19 @@ const hat = purchaseInCurrency(americanWallet, {
 });
 
 if (hat) {
-  console.log('I purchased a hat.');
+  console.log('I purchased a new Hat!');
 } else {
-  console.log('I could not afford the hat at this time.');
+  console.log('I did not purchase the hat at this time.');
 }
 
-const falafel = purchaseInCurrency<'euro'>(americanWallet.transferTo('euro'), {
-  currency: 'euro',
-  item: 'falafel',
+const falafel = purchaseInCurrency<'inr'>(americanWallet.transferTo('inr'), {
+  currency: 'inr',
+  item: 'falfel',
   price: 10,
 });
 
 if (falafel) {
-  console.log('I purchased a falafel.');
+  console.log('Purchase: Falafel');
 } else {
-  console.log('I cound not afford the falafel at this time.');
+  console.log('No Purchase!');
 }
