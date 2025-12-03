@@ -23,9 +23,7 @@ class Wallet<Currency extends CurrencyCode> {
     return true;
   }
 
-  transferTo<NewCurrency extends CurrencyCode>(
-    newCurrency: NewCurrency
-  ): Wallet<NewCurrency> {
+  transferTo<NewCurrency extends CurrencyCode>(newCurrency: NewCurrency) {
     const newStored =
       (this.stored / conversionRates.usd) * conversionRates[newCurrency];
 
@@ -48,30 +46,25 @@ const purchaseInCurrency = <Currency extends CurrencyCode>(
   return wallet.spend(tag.price) && tag.item;
 };
 
-const americanWallet = new Wallet('usd', 150);
+const americanWallet = new Wallet('usd', 500);
 
 const hat = purchaseInCurrency(americanWallet, {
   currency: 'usd',
-  item: 'Cowboy Hat',
-  price: 50,
+  item: 'cowboy hat',
+  price: 34.99,
 });
 
-if (hat) {
-  console.log('I purchased the cowboy hat!');
-} else {
-  console.log('I did not purchase the cowboy hat at this time.');
-}
-
-const falafel = purchaseInCurrency<'euro'>(americanWallet.transferTo('euro'), {
+const falafel = purchaseInCurrency<'euro'>(
+  americanWallet.transferTo('euro'),
+ {
   currency: 'euro',
   item: 'falafel',
   price: 10,
-});
+ }
+)
 
-if (falafel) {
-  console.log('I just purchased the falafel.');
+if (hat) {
+  console.log('I just purchased a cowboy hat in Texas.');
 } else {
-  console.log('I did not get the falafel at this time.');
-};
-
-
+  console.log('I did not purchase the hat in Texax.');
+}
