@@ -46,7 +46,7 @@ const purchaseInCurrency = <Currency extends CurrencyCode>(
   return wallet.spend(tag.price) && tag.item;
 };
 
-const americanWallet = new Wallet('usd', 500);
+const americanWallet = new Wallet('usd', 50);
 
 const hat = purchaseInCurrency(americanWallet, {
   currency: 'usd',
@@ -54,17 +54,8 @@ const hat = purchaseInCurrency(americanWallet, {
   price: 34.99,
 });
 
-const falafel = purchaseInCurrency<'euro'>(
-  americanWallet.transferTo('euro'),
- {
+const falafel = purchaseInCurrency<'euro'>(americanWallet.transferTo('euro'), {
   currency: 'euro',
   item: 'falafel',
   price: 10,
- }
-)
-
-if (hat) {
-  console.log('I just purchased a cowboy hat in Texas.');
-} else {
-  console.log('I did not purchase the hat in Texax.');
-}
+});
