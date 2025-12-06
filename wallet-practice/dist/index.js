@@ -25,26 +25,26 @@ class Wallet {
 const purchaseInCurrency = (wallet, tag) => {
     return wallet.spend(tag.price) && tag.item;
 };
-const americanWallet = new Wallet('usd', 30);
+const americanWallet = new Wallet('usd', 50);
 const hat = purchaseInCurrency(americanWallet, {
     currency: 'usd',
     item: 'cowboy hat',
     price: 34.99,
 });
-if (hat) {
-    console.log('I purchased a hat!');
-}
-else {
-    console.log('I did not get the hat today.');
-}
 const falafel = purchaseInCurrency(americanWallet.transferTo('euro'), {
     currency: 'euro',
     item: 'falafel',
     price: 10,
 });
-if (falafel) {
-    console.log('I just purchased a falafel.');
+if (hat) {
+    console.log('I purchased a hat! 🤠');
 }
 else {
-    console.log('I did not get the falafel today.');
+    console.log("I couldn't afford the hat...");
+}
+if (falafel) {
+    console.log('I purchased falafel! 🥙');
+}
+else {
+    console.log("I couldn't afford the falafel...");
 }
