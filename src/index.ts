@@ -1,30 +1,21 @@
 type Product = {
   name: string;
   price: number;
+  inStock: boolean;
   preOrder: boolean;
 };
 
 const product: Product = {
-  name: "hoodie",
-  price: 33,
-  preOrder: true,
-};
-
-const prodcut1: Product = {
-  name: "wireless mouse",
+  name: 'wireless mouse',
   price: 44,
+  inStock: true,
   preOrder: true,
 };
 
-prodcut1.price += 100;
-console.log(prodcut1.name);
-console.log(prodcut1.price);
-
-if (product.preOrder) {
-  console.log("We will notify you when this product ships.");
+const getProductPrice = (product: Product): number => {
+  product.price += 10;
+  return product.price;
 }
 
-if (prodcut1.preOrder) {
-  prodcut1.price += 100;
-  console.log('You got a reward', prodcut1.price);
-}
+const selectedPrice = getProductPrice(product)
+console.log(selectedPrice)
