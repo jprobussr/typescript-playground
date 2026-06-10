@@ -1,13 +1,28 @@
 "use strict";
-const product = {
-    name: 'wireless mouse',
-    price: 44,
-    inStock: true,
-    preOrder: true,
+const products = [
+    {
+        name: 'gaming keyboard',
+        price: 89,
+        inStock: true,
+        preOrder: false,
+    },
+    {
+        name: 'wireless mouse',
+        price: 44,
+        inStock: false,
+        preOrder: true,
+    },
+    {
+        name: 'monitor',
+        price: 199,
+        inStock: true,
+        preOrder: false,
+    },
+];
+const formatPrice = (price) => {
+    return `$${price.toFixed(2)}`;
 };
-const getProductPrice = (product) => {
-    product.price += 10;
-    return product.price;
-};
-const selectedPrice = getProductPrice(product);
-console.log(selectedPrice);
+for (const product of products) {
+    console.log(product.name);
+    console.log(formatPrice(product.price));
+}
