@@ -6,13 +6,29 @@ type Product = {
   rating: number;
 };
 
-const product: Product = {
-  name: 'Wireless Mouse',
-  price: 29.99,
-  inStock: true,
-  category: 'Electronics',
-  rating: 4.6,
-};
+const products: Product[] = [
+  {
+    name: 'Wireless Mouse',
+    price: 29.99,
+    inStock: true,
+    category: 'Electronics',
+    rating: 4.6,
+  },
+  {
+    name: 'Gaming Keyboard',
+    price: 79.99,
+    inStock: true,
+    category: 'Electronics',
+    rating: 4.8,
+  },
+  {
+    name: 'USB-C Hub',
+    price: 49.99,
+    inStock: true,
+    category: 'Accessories',
+    rating: 4.3,
+  },
+];
 
 const formatPrice = (price: number): string => {
   return `$${price.toFixed(2)}`;
@@ -34,4 +50,26 @@ const generateProductSummary = (product: Product): string => {
   } stars. ${getStockStatus(product.inStock)}`;
 };
 
-console.log(generateProductSummary(product));
+const productSummaries: string[] = products.map((product): string => {
+  return generateProductSummary(product);
+});
+
+productSummaries.forEach((summary: string) => {
+  console.log(summary);
+});
+
+const inStockProducts: Product[] = products.filter(
+  (product: Product): boolean => {
+    return product.inStock === true;
+  },
+);
+
+const inStockSummaries: string[] = inStockProducts.map(
+  (product: Product): string => {
+    return generateProductSummary(product);
+  },
+);
+
+inStockSummaries.forEach((summary: string) => {
+  console.log(summary);
+});
