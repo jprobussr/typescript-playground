@@ -17,7 +17,7 @@ const products: Product[] = [
   {
     name: 'Gaming Keyboard',
     price: 79.99,
-    inStock: true,
+    inStock: false,
     category: 'Electronics',
     rating: 4.8,
   },
@@ -36,23 +36,29 @@ const formatPrice = (price: number): string => {
 
 const getStockStatus = (inStock: boolean): string => {
   if (inStock) {
-    return 'It is currently in stock.';
+    return 'The product you seek is in stock.';
   } else {
-    return 'It is currently out of stock.';
+    return 'The product you seek is not in stock';
   }
 };
 
+// const firstProductSummary: string = `${products[0].name} is a ${products[0].category} product priced at ${formatPrice(products[0].price)}. ${getStockStatus(products[0].inStock)}`;
+
+// console.log(firstProductSummary);
+
 const generateProductSummary = (product: Product): string => {
-  return `${product.name} is a ${
-    product.category
-  } product priced at ${formatPrice(product.price)}. It has a rating of ${
-    product.rating
-  } stars. ${getStockStatus(product.inStock)}`;
+  return `${product.name} is ${product.category} product priced at ${formatPrice(product.price)}. ${getStockStatus(product.inStock)}`;
 };
 
-const productSummaries: string[] = products.map((product): string => {
+// products.forEach((product) => {
+//   console.log(generateProductSummary(product));
+// });
+
+const productSummaries: string[] = products.map((product: Product): string => {
   return generateProductSummary(product);
 });
+
+console.log('=== All Products ===');
 
 productSummaries.forEach((summary: string) => {
   console.log(summary);
@@ -64,11 +70,16 @@ const inStockProducts: Product[] = products.filter(
   },
 );
 
+// console.log(inStockProducts);
+
 const inStockSummaries: string[] = inStockProducts.map(
   (product: Product): string => {
     return generateProductSummary(product);
   },
 );
+
+console.log('');
+console.log('=== In-Stock Products ===');
 
 inStockSummaries.forEach((summary: string) => {
   console.log(summary);
