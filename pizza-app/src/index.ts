@@ -1,9 +1,30 @@
+type PizzaSize = 'small' | 'medium' | 'large';
+
 type Pizza = {
   name: string;
   price: number;
-  size: string;
+  size: PizzaSize;
   isAvailable: boolean;
 };
+
+type Order = {
+  id: number;
+  pizzaName: string;
+  quantity: number;
+};
+
+const orders: Order[] = [
+  {
+    id: 1,
+    pizzaName: 'Cheese Pizza',
+    quantity: 2,
+  },
+  {
+    id: 2,
+    pizzaName: 'Pepperoni Pizza',
+    quantity: 1,
+  },
+];
 
 const menu: Pizza[] = [
   {
@@ -16,7 +37,7 @@ const menu: Pizza[] = [
     name: 'Pepperoni Pizza',
     price: 14.99,
     size: 'large',
-    isAvailable: true,
+    isAvailable: false,
   },
   {
     name: 'Veggie Pizza',
@@ -26,32 +47,8 @@ const menu: Pizza[] = [
   },
 ];
 
-const foundPizza = menu.find((pizza) => {
-  return pizza.name === 'Pepperoni Pizza';
+const expensivePizza = menu.find((pizza) => {
+  return pizza.price > 14;
 });
 
-console.log(foundPizza);
-
-const availablePizza = menu.filter((pizza) => {
-  return pizza.isAvailable;
-});
-
-const getAvailabilityText = (available: boolean): string => {
-  if (available) {
-    return 'In Stock';
-  }
-
-  return 'Sold Out';
-};
-
-const formatPizza = (pizza: Pizza): string => {
-  return `${pizza.name} - $${pizza.price} - Available: ${getAvailabilityText(pizza.isAvailable)}`;
-};
-
-menu.forEach((pizza) => {
-  console.log(formatPizza(pizza));
-});
-
-availablePizza.forEach((pizza) => {
-  console.log(formatPizza(pizza));
-});
+console.log(expensivePizza);
