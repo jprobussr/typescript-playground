@@ -31,12 +31,8 @@ const workouts: Workout[] = [
 ];
 
 
-const completedCalories = workouts.reduce((total, workout) => {
-  if (workout.completed === true) {
-    return total + workout.calories;
-  }
+const highCalorie = workouts.some((workout) => {
+  return workout.calories === 500;
+});
 
-  return total;
-}, 0);
-
-console.log(`Your total calories burned today is ${completedCalories} calories.`);
+console.log(highCalorie)
