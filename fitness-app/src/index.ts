@@ -1,38 +1,50 @@
-type Workout = {
-  name: string;
-  duration: number;
-  calories: number;
-  difficulty: string;
-  completed: boolean;
+type JobApplication = {
+  company: string;
+  role: string;
+  location: string;
+  salary: number;
+  isRemote: boolean;
+  hasApplied: boolean;
 };
 
-const workouts: Workout[] = [
+const jobApplication: JobApplication[] = [
   {
-    name: 'Morning Walk',
-    duration: 30,
-    calories: 180,
-    difficulty: 'easy',
-    completed: true,
+    company: "TechBridge",
+    role: "Front-End Developer",
+    location: "Remote",
+    salary: 70000,
+    isRemote: true,
+    hasApplied: true,
   },
   {
-    name: 'Strength Training',
-    duration: 45,
-    calories: 350,
-    difficulty: 'medium',
-    completed: false,
+    company: "BluePeak Software",
+    role: "React Developer",
+    location: "Nashville",
+    salary: 82000,
+    isRemote: false,
+    hasApplied: false,
   },
   {
-    name: 'HIIT Cardio',
-    duration: 20,
-    calories: 300,
-    difficulty: 'hard',
-    completed: true,
+    company: "CodeCraft",
+    role: "Junior Front-End Engineer",
+    location: "Remote",
+    salary: 65000,
+    isRemote: true,
+    hasApplied: false,
+  },
+  {
+    company: "DataNest",
+    role: "UI Developer",
+    location: "Louisville",
+    salary: 76000,
+    isRemote: false,
+    hasApplied: true,
   },
 ];
 
 
-const highCalorie = workouts.some((workout) => {
-  return workout.calories === 500;
+const higherPay = jobApplication.filter((job) => {
+  return job.salary >= 76000;
 });
 
-console.log(highCalorie)
+console.log(higherPay);
