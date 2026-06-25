@@ -1,35 +1,38 @@
 "use strict";
-const movies = [
+const orders = [
     {
-        title: 'The Dark Knight',
-        genre: 'action',
-        rating: 9.0,
-        runtime: 152,
-        isWatched: true,
+        item: "Burger",
+        category: "food",
+        price: 12.99,
+        quantity: 2,
+        isPaid: true,
     },
     {
-        title: 'Finding Nemo',
-        genre: 'animation',
-        rating: 8.2,
-        runtime: 100,
-        isWatched: true,
+        item: "Fries",
+        category: "side",
+        price: 4.99,
+        quantity: 1,
+        isPaid: true,
     },
     {
-        title: 'Interstellar',
-        genre: 'sci-fi',
-        rating: 8.7,
-        runtime: 169,
-        isWatched: false,
+        item: "Lemonade",
+        category: "drink",
+        price: 3.5,
+        quantity: 3,
+        isPaid: false,
     },
     {
-        title: 'The Grand Budapest Hotel',
-        genre: 'comedy',
-        rating: 8.1,
-        runtime: 99,
-        isWatched: false,
+        item: "Chicken Salad",
+        category: "food",
+        price: 10.99,
+        quantity: 1,
+        isPaid: true,
     },
 ];
-const horrorFilm = movies.find((movie) => {
-    return movie.genre === 'horror';
-});
-console.log(horrorFilm);
+const totalUnpaidRevenue = orders.reduce((total, order) => {
+    if (order.isPaid === false) {
+        return total + order.price * order.quantity;
+    }
+    return total;
+}, 0);
+console.log(totalUnpaidRevenue);
