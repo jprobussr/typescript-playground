@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const orders_1 = require("./orders");
-let totalOrders = 0;
+const affordableOrders = [];
 orders_1.orders.forEach((restaurantOrders) => {
-    restaurantOrders.forEach(() => {
-        totalOrders++;
+    const affordableMeals = restaurantOrders.filter((order) => {
+        return order.price < 10;
     });
+    affordableOrders.push(affordableMeals);
 });
-console.log(totalOrders);
+console.log(affordableOrders);
