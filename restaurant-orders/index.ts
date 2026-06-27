@@ -1,13 +1,13 @@
 import { orders, type Order } from './orders';
+import { restaurants } from './restaurants';
 
-const affordableOrders: Order[][] = [];
+const firstRestaurantOrders = orders[0];
 
-orders.forEach((restaurantOrders) => {
-  const affordableMeals = restaurantOrders.filter((order) => {
-    return order.price < 10;
-  });
-
-  affordableOrders.push(affordableMeals);
+const updateOrders = firstRestaurantOrders.map((order) => {
+  return {
+    ...order,
+    isAffordable: order.price < 10,
+  };
 });
 
-console.log(affordableOrders);
+console.log(updateOrders);
