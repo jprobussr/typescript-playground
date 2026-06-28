@@ -3,11 +3,11 @@ import { restaurants } from './restaurants';
 
 const firstRestaurantOrders = orders[0];
 
-const updateOrders = firstRestaurantOrders.map((order) => {
+const addIds = firstRestaurantOrders.map((order, index) => {
   return {
     ...order,
-    isAffordable: order.price < 10,
+    id: index + 1,
   };
 });
 
-console.log(updateOrders);
+console.log(addIds);

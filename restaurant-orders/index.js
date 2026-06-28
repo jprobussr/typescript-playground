@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const orders_1 = require("./orders");
 const firstRestaurantOrders = orders_1.orders[0];
-const updateOrders = firstRestaurantOrders.map((order) => {
-    return Object.assign(Object.assign({}, order), { isAffordable: order.price < 10 });
+const addIds = firstRestaurantOrders.map((order, index) => {
+    return Object.assign(Object.assign({}, order), { id: index + 1 });
 });
-console.log(updateOrders);
+console.log(addIds);
