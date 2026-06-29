@@ -1,13 +1,18 @@
-import { orders, type Order } from './orders';
+import { orders, PriceBracket, type Order } from './orders';
 import { restaurants } from './restaurants';
 
-const firstRestaurantOrders = orders[0];
 
-const addIds = firstRestaurantOrders.map((order, index) => {
-  return {
-    ...order,
-    id: index + 1,
-  };
+
+restaurants.forEach((restaurant) => {
+  const distance = Number(restaurant.distance);
+
+  const priceLabel =
+    restaurant.priceBracket === PriceBracket.Low ? 'Affordable' : 'Premium';
+
+  const location = distance <= 5 ? 'Nearby' : 'Far Away';
+
+  console.log(
+    `${restaurant.name} | ${priceLabel} | ${restaurant.deliveryTimeMinutes} min | ${location} | Open ${restaurant.openHour}:00-${restaurant.closeHour}:00`
+  );
 });
 
-console.log(addIds);
