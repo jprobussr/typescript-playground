@@ -24,9 +24,9 @@ const getOrders = (price, orders) => {
     });
     return filteredOrders;
 };
-const printOrders = (restaurants, orders) => {
-    restaurants.forEach((restaurant, index) => {
-        const restaurantOrders = orders[index];
+const printOrders = (restaurant, orders) => {
+    restaurants_1.restaurants.forEach((restaurant, index) => {
+        const restaurantOrders = orders[0];
         if (restaurantOrders.length > 0) {
             console.log(restaurant.name);
             restaurantOrders.forEach((order) => {
@@ -35,5 +35,5 @@ const printOrders = (restaurants, orders) => {
         }
     });
 };
-const eligibleOrders = getOrders(orders_1.PriceBracket.Low, orders_1.orders);
-printOrders(restaurants_1.restaurants, eligibleOrders);
+const elgibleOrders = getOrders(orders_1.PriceBracket.Low, orders_1.orders);
+printOrders(restaurants_1.restaurants, elgibleOrders);
