@@ -1,12 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const orders_1 = require("./orders");
-// Count the total number of orders
-let totalOrders = 0;
-orders_1.orders.forEach((restaurantOrders) => {
-    restaurantOrders.forEach((order) => {
-        console.log(order.name);
-        totalOrders++;
+const getAffordableOrders = (maxPrice) => {
+    const affordableOrders = [];
+    orders_1.orders.forEach((restaurantOrders) => {
+        const affordableMeals = restaurantOrders.filter((order) => {
+            return order.price <= maxPrice;
+        });
+        affordableOrders.push(affordableMeals);
     });
-});
-console.log(totalOrders);
+    return affordableOrders;
+};
+console.log(getAffordableOrders(16));

@@ -1,15 +1,19 @@
 import { orders, PriceBracket, type Order } from './orders';
 import { restaurants, type Restaurant } from './restaurants';
 
-// Count the total number of orders
+const getAffordableOrders = (maxPrice: number): Order[][] => {
+  const affordableOrders: Order[][] = [];
 
-let totalOrders = 0;
-
-orders.forEach((restaurantOrders) => {
-  restaurantOrders.forEach((order) => {
-    console.log(order.name)
-    totalOrders++;
+  orders.forEach((restaurantOrders) => {
+    const affordableMeals = restaurantOrders.filter((order) => {
+      return order.price <= maxPrice;
+    });
+    affordableOrders.push(affordableMeals);
   });
-});
 
-console.log(totalOrders);
+  return affordableOrders;
+};
+
+console.log(getAffordableOrders(16));
+
+
