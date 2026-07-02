@@ -1,39 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const orders_1 = require("./orders");
-const restaurants_1 = require("./restaurants");
-const getMaxPrice = (price) => {
-    switch (price) {
-        case orders_1.PriceBracket.Low:
-            return 10;
-        case orders_1.PriceBracket.Medium:
-            return 20;
-        case orders_1.PriceBracket.High:
-            return 30;
-    }
-};
-// Get Orders
-const getOrders = (price, orders) => {
-    const maxPrice = getMaxPrice(price);
-    const filteredOrders = [];
-    orders.forEach((restaurantOrders) => {
-        const filteredRestaurantOrders = restaurantOrders.filter((order) => {
-            return order.price <= maxPrice;
-        });
-        filteredOrders.push(filteredRestaurantOrders);
+// Count the total number of orders
+let totalOrders = 0;
+orders_1.orders.forEach((restaurantOrders) => {
+    restaurantOrders.forEach((order) => {
+        console.log(order.name);
+        totalOrders++;
     });
-    return filteredOrders;
-};
-const printOrders = (restaurant, orders) => {
-    restaurants_1.restaurants.forEach((restaurant, index) => {
-        const restaurantOrders = orders[0];
-        if (restaurantOrders.length > 0) {
-            console.log(restaurant.name);
-            restaurantOrders.forEach((order) => {
-                console.log(`- ${order.name}: $${order.price}`);
-            });
-        }
-    });
-};
-const elgibleOrders = getOrders(orders_1.PriceBracket.Low, orders_1.orders);
-printOrders(restaurants_1.restaurants, elgibleOrders);
+});
+console.log(totalOrders);

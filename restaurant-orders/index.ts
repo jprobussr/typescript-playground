@@ -1,45 +1,15 @@
 import { orders, PriceBracket, type Order } from './orders';
 import { restaurants, type Restaurant } from './restaurants';
 
-const getMaxPrice = (price: PriceBracket): number => {
-  switch (price) {
-    case PriceBracket.Low:
-      return 10;
-    case PriceBracket.Medium:
-      return 20;
-    case PriceBracket.High:
-      return 30;
-  }
-};
+// Count the total number of orders
 
-// Get Orders
-const getOrders = (price: PriceBracket, orders: Order[][]): Order[][] => {
-  const maxPrice = getMaxPrice(price);
-  const filteredOrders: Order[][] = [];
+let totalOrders = 0;
 
-  orders.forEach((restaurantOrders) => {
-    const filteredRestaurantOrders = restaurantOrders.filter((order) => {
-      return order.price <= maxPrice;
-    });
-    filteredOrders.push(filteredRestaurantOrders);
+orders.forEach((restaurantOrders) => {
+  restaurantOrders.forEach((order) => {
+    console.log(order.name)
+    totalOrders++;
   });
+});
 
-  return filteredOrders;
-};
-
-const printOrders = (restaurant: Restaurant[], orders: Order[][]): void => {
-  restaurants.forEach((restaurant, index) => {
-    const restaurantOrders = orders[0];
-
-    if (restaurantOrders.length > 0) {
-      console.log(restaurant.name);
-
-      restaurantOrders.forEach((order) => {
-        console.log(`- ${order.name}: $${order.price}`);
-      });
-    }
-  });
-};
-
-const elgibleOrders = getOrders(PriceBracket.Low, orders);
-printOrders(restaurants, elgibleOrders);
+console.log(totalOrders);
