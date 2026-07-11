@@ -33,16 +33,14 @@ const printOrders = (restaurants: Restaurant[], orders: Order[][]): void => {
 
     if (restaurantOrders.length > 0) {
       console.log(restaurant.name);
-
-      restaurantOrders.forEach((order) => {
-        console.log(`- ${order.name}: $${order.price}`);
-      });
-
-      console.log('');
     }
+
+    restaurantOrders.forEach((order) => {
+      console.log(`- ${order.name} - $${order.price}`);
+    });
   });
 };
 
-const result = getOrders(PriceBracket.Low, orders);
+const result = getOrders(PriceBracket.High, orders);
 
 printOrders(restaurants, result);

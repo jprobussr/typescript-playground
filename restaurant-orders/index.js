@@ -30,12 +30,11 @@ const printOrders = (restaurants, orders) => {
         const restaurantOrders = orders[index];
         if (restaurantOrders.length > 0) {
             console.log(restaurant.name);
-            restaurantOrders.forEach((order) => {
-                console.log(`- ${order.name}: $${order.price}`);
-            });
-            console.log('');
         }
+        restaurantOrders.forEach((order) => {
+            console.log(`- ${order.name} - $${order.price}`);
+        });
     });
 };
-const result = getOrders(orders_1.PriceBracket.Low, orders_1.orders);
+const result = getOrders(orders_1.PriceBracket.High, orders_1.orders);
 printOrders(restaurants_1.restaurants, result);
