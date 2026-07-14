@@ -1,14 +1,14 @@
-import courses from './courses';
-import studyGroups from './studyGroups';
+import studyGroups from "./studyGroups";
+import courses from "./courses";
 
-console.log(studyGroups);
+
 
 type Course = {
   id: number;
   studyGroupId: number;
   title: string;
   keywords: string[];
-  eventType: string;
+  eventType: "courses";
 };
 
 type StudyGroup = {
@@ -16,24 +16,31 @@ type StudyGroup = {
   courseId: number;
   title: string;
   keywords: string[];
-  eventType: string;
+  eventType: "groups";
 };
 
 type SearchEventsOptions = {
   query: string | number;
-  eventType: 'courses' | 'groups';
+  eventType: "courses" | "groups";
 };
 
 const searchEvents = (options: SearchEventsOptions) => {
-  const events: Course[] | StudyGroup[] =
-    options.eventType === 'courses' ? courses : studyGroups;
+  const events = options.eventType === "courses" ? courses : studyGroups;
 
-  events.filter((event: Course | StudyGroup) => {
-    if (typeof options.query === 'number') {
-        return event.id === options.query;
+  const results = events.filter((event) => {
+    if (typeof options.query === "number") {
+      return event.id === options.query;
     }
-    if (typeof options.query === 'string') {
-        return event.keywords.includes(options.query);
-    }
+
+    const query = options.query.toLowerCase();
+    return event.title.toLowerCase().includes(query);
   });
+  return results;
 };
+
+const groupResults = searchEvents({
+  query: 2,
+  eventType: "groups",
+});
+
+console.log(groupResults);
