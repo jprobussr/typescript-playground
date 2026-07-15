@@ -1,14 +1,12 @@
-import studyGroups from "./studyGroups";
-import courses from "./courses";
-
-
+import studyGroups from './studyGroups';
+import courses from './courses';
 
 type Course = {
   id: number;
   studyGroupId: number;
   title: string;
   keywords: string[];
-  eventType: "courses";
+  eventType: string;
 };
 
 type StudyGroup = {
@@ -16,31 +14,36 @@ type StudyGroup = {
   courseId: number;
   title: string;
   keywords: string[];
-  eventType: "groups";
+  eventType: string;
 };
 
 type SearchEventsOptions = {
   query: string | number;
-  eventType: "courses" | "groups";
+  eventType: 'courses' | 'groups';
 };
 
 const searchEvents = (options: SearchEventsOptions) => {
-  const events = options.eventType === "courses" ? courses : studyGroups;
+  const events: (Course | StudyGroup)[] =
+    options.eventType === 'courses' ? courses : studyGroups;
 
-  const results = events.filter((event) => {
-    if (typeof options.query === "number") {
+  return events.filter((event: Course | StudyGroup) => {
+    if (typeof options.query === 'number') {
       return event.id === options.query;
     }
 
-    const query = options.query.toLowerCase();
-    return event.title.toLowerCase().includes(query);
+    if (typeof options.query === 'string') {
+      return event.keywords.includes(options.query);
+    }
+
+    return false;
   });
-  return results;
 };
 
-const groupResults = searchEvents({
-  query: 2,
-  eventType: "groups",
-});
+let enrolledEvents: (Course | StudyGroup)[] = [];
 
-console.log(groupResults);
+const enroll = (event: Course | StudyGroup): void => {
+  enrolledEvents.push(event);
+}
+
+enroll(studyGroups[0]);
+console.log(enrolledEvents);
