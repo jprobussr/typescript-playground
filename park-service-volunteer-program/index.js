@@ -1,12 +1,66 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const raccoon_meadows_log_1 = require("./raccoon-meadows-log");
-const volunteersWithLongActivities = raccoon_meadows_log_1.raccoonMeadowsVolunteers.filter((volunteer) => {
-    return volunteer.activities.some((activity) => {
-        return activity.hours > 3;
-    });
+const volunteerNames = raccoon_meadows_log_1.raccoonMeadowsVolunteers.map((volunteer) => {
+    return volunteer.name;
 });
-console.log(volunteersWithLongActivities);
+console.log(volunteerNames);
+// const allActivitiesAreVerified = raccoonMeadowsVolunteers.every((volunteer) => {
+//     return volunteer.activities.every((activity) => {
+//         return activity.verified === 'Yes';
+//     });
+// });
+// console.log(allActivitiesAreVerified);
+// const everyVolunteerHasVerifiedActivity =  raccoonMeadowsVolunteers.every((volunteer) => {
+//     return volunteer.activities.some((activity) => {
+//         return activity.verified === 'Yes';
+//     });
+// });
+// console.log(everyVolunteerHasVerifiedActivity);
+// const everyVolunteerHasMultipleActivities = raccoonMeadowsVolunteers.every((volunteer) => {
+//     return volunteer.activities.length > 1;
+// });
+// console.log(everyVolunteerHasMultipleActivities);
+// const everyVolunteerIdIsAbove100 = raccoonMeadowsVolunteers.every((volunteer) => {
+//     return volunteer.id > 100;
+// });
+// console.log(everyVolunteerIdIsAbove100);
+// const everyVolunteerHasActivities = raccoonMeadowsVolunteers.every((volunteer) => {
+//     return volunteer.activities.length >= 1;
+// });
+// console.log(everyVolunteerHasActivities);
+// const hasEightHourActivity = raccoonMeadowsVolunteers.some((volunteer) => {
+//   return volunteer.activities.some((activity) => {
+//     return activity.hours === 8;
+//   });
+// });
+// console.log(hasEightHourActivity);
+// const hasUnverifiedActivity = raccoonMeadowsVolunteers.some((volunteer) => {
+//     return volunteer.activities.some((activity) => {
+//         return activity.verified === 'No';
+//     });
+// });
+// console.log(hasUnverifiedActivity);
+// const hasVolunteerWithMoreThanTwoActivities = raccoonMeadowsVolunteers.some(
+//   (volunteer) => {
+//     return volunteer.activities.length > 2;
+//   },
+// );
+// console.log(hasVolunteerWithMoreThanTwoActivities);
+// const hasVolunteerWithIdAbove105 = raccoonMeadowsVolunteers.some((volunteer) => {
+//     return volunteer.id > 105;
+// });
+// console.log(hasVolunteerWithIdAbove105);
+// const hasRajWardle = raccoonMeadowsVolunteers.some((volunteer) => {
+//     return volunteer.name === 'Raj Wardle';
+// });
+// console.log(hasRajWardle);
+// const volunteersWithLongActivities = raccoonMeadowsVolunteers.filter((volunteer) => {
+//     return volunteer.activities.some((activity) => {
+//         return activity.hours > 3;
+//     });
+// });
+// console.log(volunteersWithLongActivities);
 // const volunteersWithVerifiedActivities = raccoonMeadowsVolunteers.filter((volunteer) => {
 //     return volunteer.activities.some((activity) => {
 //         return activity.verified === 'Yes';
