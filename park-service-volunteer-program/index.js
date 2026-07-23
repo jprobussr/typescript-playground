@@ -1,10 +1,38 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const raccoon_meadows_log_1 = require("./raccoon-meadows-log");
-const volunteerNames = raccoon_meadows_log_1.raccoonMeadowsVolunteers.map((volunteer) => {
-    return volunteer.name;
+const wolf_point_log_1 = require("./wolf-point-log");
+const volunteerWithLongActivity = wolf_point_log_1.wolfPointVolunteers.find((volunteer) => {
+    return volunteer.activities.some((activity) => {
+        return activity.time >= 5;
+    });
 });
-console.log(volunteerNames);
+console.log(volunteerWithLongActivity);
+// const volunteerWithUnverifiedActivity = wolfPointVolunteers.find((volunteer) => {
+//     return volunteer.activities.some((activity) => {
+//         return activity.verified === false;
+//     });
+// });
+// console.log(volunteerWithUnverifiedActivity);
+// const unverifiedVolunteer = wolfPointVolunteers.find((volunteer) => {
+//     return volunteer.activities[0].verified === false;
+// });
+// console.log(unverifiedVolunteer);
+// const volunteerWithTwoActivities = wolfPointVolunteers.find((volunteer) => {
+//     return volunteer.activities.length === 2;
+// });
+// console.log(volunteerWithTwoActivities);
+// const volunteerById = wolfPointVolunteers.find((volunteer) => {
+//     return volunteer.id === '401cm';
+// });
+// console.log(volunteerById);
+// const volunteer = wolfPointVolunteers.find((volunteer) => {
+//   return volunteer.name === 'Maisha Mcconnell';
+// });
+// console.log(volunteer);
+// const volunteerNames = raccoonMeadowsVolunteers.map((volunteer) => {
+//     return volunteer.name;
+// });
+// console.log(volunteerNames);
 // const allActivitiesAreVerified = raccoonMeadowsVolunteers.every((volunteer) => {
 //     return volunteer.activities.every((activity) => {
 //         return activity.verified === 'Yes';

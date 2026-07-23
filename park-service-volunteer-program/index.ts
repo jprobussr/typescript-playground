@@ -1,10 +1,51 @@
 import { raccoonMeadowsVolunteers } from './raccoon-meadows-log';
+import { wolfPointVolunteers } from './wolf-point-log';
 
-const volunteerNames = raccoonMeadowsVolunteers.map((volunteer) => {
-    return volunteer.name;
-});
+// const volunteerWithLongActivity = wolfPointVolunteers.find((volunteer) => {
+//     return volunteer.activities.some((activity) => {
+//         return activity.time >= 5;
+//     });
+// });
 
-console.log(volunteerNames);
+// console.log(volunteerWithLongActivity);
+
+// const volunteerWithUnverifiedActivity = wolfPointVolunteers.find((volunteer) => {
+//     return volunteer.activities.some((activity) => {
+//         return activity.verified === false;
+//     });
+// });
+
+// console.log(volunteerWithUnverifiedActivity);
+
+// const unverifiedVolunteer = wolfPointVolunteers.find((volunteer) => {
+//     return volunteer.activities[0].verified === false;
+// });
+
+// console.log(unverifiedVolunteer);
+
+// const volunteerWithTwoActivities = wolfPointVolunteers.find((volunteer) => {
+//     return volunteer.activities.length === 2;
+// });
+
+// console.log(volunteerWithTwoActivities);
+
+// const volunteerById = wolfPointVolunteers.find((volunteer) => {
+//     return volunteer.id === '401cm';
+// });
+
+// console.log(volunteerById);
+
+// const volunteer = wolfPointVolunteers.find((volunteer) => {
+//   return volunteer.name === 'Maisha Mcconnell';
+// });
+
+// console.log(volunteer);
+
+// const volunteerNames = raccoonMeadowsVolunteers.map((volunteer) => {
+//     return volunteer.name;
+// });
+
+// console.log(volunteerNames);
 
 // const allActivitiesAreVerified = raccoonMeadowsVolunteers.every((volunteer) => {
 //     return volunteer.activities.every((activity) => {
