@@ -1,17 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const wolf_point_log_1 = require("./wolf-point-log");
-const detailedVolunteerSummaries = wolf_point_log_1.wolfPointVolunteers.filter((volunteer) => {
-    const totalTime = volunteer.activities.reduce((total, activity) => {
-        return total + activity.time;
-    }, 0);
-    return {
-        name: volunteer.name,
-        totalTime,
-        activityCount: volunteer.activities.length,
-    };
-});
-console.log(detailedVolunteerSummaries);
+// const detailedVolunteerSummaries = wolfPointVolunteers.map((volunteer) => {
+//   const totalTime = volunteer.activities.reduce((total, activity) => {
+//     return total + activity.time;
+//   }, 0);
+//   return {
+//     name: volunteer.name,
+//     totalTime,
+//     activityCount: volunteer.activities.length,
+//   };
+// });
+// console.log(detailedVolunteerSummaries);
 // const volunteerSummaries = wolfPointVolunteers.map((volunteer) => {
 //   const totalTime = volunteer.activities.reduce((total, activity) => {
 //     return total + activity.time;
