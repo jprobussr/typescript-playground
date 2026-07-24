@@ -1,6 +1,75 @@
 import { raccoonMeadowsVolunteers } from './raccoon-meadows-log';
 import { wolfPointVolunteers } from './wolf-point-log';
 
+// const detailedVolunteerSummaries = wolfPointVolunteers.map((volunteer) => {
+//   const totalTime = volunteer.activities.reduce((total, activity) => {
+//     return total + activity.time;
+//   }, 0);
+
+//   return {
+//     name: volunteer.name,
+//     totalTime,
+//     activityCount: volunteer.activities.length,
+//   };
+// });
+
+// console.log(detailedVolunteerSummaries);
+
+// const volunteerSummaries = wolfPointVolunteers.map((volunteer) => {
+//   const totalTime = volunteer.activities.reduce((total, activity) => {
+//     return total + activity.time;
+//   }, 0);
+
+//   return {
+//     name: volunteer.name,
+//     totalTime,
+//   };
+// });
+
+// console.log(volunteerSummaries);
+
+// const volunteersWithAtLeastFiveHours = wolfPointVolunteers.filter((volunteer) => {
+//     const totalTime = volunteer.activities.reduce((total, activity) => {
+//         return total + activity.time;
+//     }, 0);
+
+//     return totalTime >= 5;
+// });
+
+// console.log(volunteersWithAtLeastFiveHours);
+
+// const volunteersWithAllVerifiedActivities = wolfPointVolunteers.filter((volunteer) => {
+//     return volunteer.activities.every((activity) => {
+//         return activity.verified === true
+//     });
+// });
+
+// console.log(volunteersWithAllVerifiedActivities);
+
+// const volunteersWithUnverifiedActivities = wolfPointVolunteers.filter(
+//   (volunteer) => {
+//     return volunteer.activities.some((activity) => {
+//       return activity.verified === false;
+//     });
+//   },
+// );
+
+// console.log(volunteersWithUnverifiedActivities);
+
+// const volunteersWithMultipleActivities = wolfPointVolunteers.filter((volunteer) => {
+//     return volunteer.activities.length > 1;
+// });
+
+// console.log(volunteersWithMultipleActivities);
+
+// const volunteersWithLongActivities = wolfPointVolunteers.filter((volunteer) => {
+//     return volunteer.activities.some((activity) => {
+//         return activity.time >= 5;
+//     });
+// });
+
+// console.log(volunteersWithLongActivities);
+
 // const volunteerWithLongActivity = wolfPointVolunteers.find((volunteer) => {
 //     return volunteer.activities.some((activity) => {
 //         return activity.time >= 5;
