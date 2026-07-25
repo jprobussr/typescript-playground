@@ -1,37 +1,121 @@
-type Employee = {
+type Project = {
   name: string;
-  department: string;
-  yearsAtCompany: number;
+  completed: boolean;
 };
 
-const employees: Employee[] = [
+type Developer = {
+  name: string;
+  team: string;
+  projects: Project[];
+};
+
+const developers: Developer[] = [
   {
     name: 'John',
-    department: 'Engineering',
-    yearsAtCompany: 5,
+    team: 'Frontend',
+    projects: [
+      { name: 'Portfolio', completed: true },
+      { name: 'Dashboard', completed: false },
+    ],
   },
   {
     name: 'Amy',
-    department: 'Marketing',
-    yearsAtCompany: 2,
+    team: 'Backend',
+    projects: [
+      { name: 'API', completed: true },
+      { name: 'Authentication', completed: true },
+    ],
   },
   {
     name: 'Chris',
-    department: 'Engineering',
-    yearsAtCompany: 8,
+    team: 'Frontend',
+    projects: [{ name: 'Landing Page', completed: false }],
   },
   {
     name: 'Sarah',
-    department: 'HR',
-    yearsAtCompany: 1,
+    team: 'QA',
+    projects: [
+      { name: 'Regression Tests', completed: true },
+      { name: 'Automation', completed: false },
+    ],
   },
 ];
 
-const newerNonEngineeringEmployees = employees.filter((employee) => {
-    return employee.department !== 'Engineering' && (employee.yearsAtCompany === 1 || employee.yearsAtCompany === 2);
+const nonFrontendDevelopersWithCompletedProjects = developers.filter((developer) => {
+    return developer.team !== 'Frontend' && developer.projects.every((project) => {
+        return project.completed;
+    });
 });
 
-console.log(newerNonEngineeringEmployees);
+console.log(nonFrontendDevelopersWithCompletedProjects);
+
+// const frontendDevelopersWithIncompleteProjects = developers.filter((developer) => {
+//     return developer.team === 'Frontend' && developer.projects.some((project) => {
+//         return project.completed === false;
+//     });
+// });
+
+// console.log(frontendDevelopersWithIncompleteProjects);
+
+// const developersWithIncompleteProjects = developers.filter((developer) => {
+//     return developer.projects.some((project) => {
+//         return project.completed === false;
+//     });
+// });
+
+// console.log(developersWithIncompleteProjects);
+
+
+// const developersWithAllProjectsCompleted = developers.filter((developer) => {
+//     return developer.projects.every((project) => {
+//         return project.completed;
+//     });
+// });
+
+// console.log(developersWithAllProjectsCompleted);
+
+// const developersWithCompletedProjects = developers.filter((developer) => {
+//     return developer.projects.some((project) => {
+//         return project.completed;
+//     });
+// });
+
+// console.log(developersWithCompletedProjects);
+
+// type Employee = {
+//   name: string;
+//   department: string;
+//   yearsAtCompany: number;
+// };
+
+// const employees: Employee[] = [
+//   {
+//     name: 'John',
+//     department: 'Engineering',
+//     yearsAtCompany: 5,
+//   },
+//   {
+//     name: 'Amy',
+//     department: 'Marketing',
+//     yearsAtCompany: 2,
+//   },
+//   {
+//     name: 'Chris',
+//     department: 'Engineering',
+//     yearsAtCompany: 8,
+//   },
+//   {
+//     name: 'Sarah',
+//     department: 'HR',
+//     yearsAtCompany: 1,
+//   },
+// ];
+
+// const newerNonEngineeringEmployees = employees.filter((employee) => {
+//     return employee.department !== 'Engineering' && (employee.yearsAtCompany === 1 || employee.yearsAtCompany === 2);
+// });
+
+// console.log(newerNonEngineeringEmployees);
 
 // const engineeringEmployeesWithFiveOrEightYears = employees.filter(
 //   (employee) => {
