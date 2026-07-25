@@ -20,10 +20,55 @@ const employees = [
         yearsAtCompany: 1,
     },
 ];
-const employeeUnderReview = employees.filter((employee) => {
-    return employee.department !== 'Engineering' && employee.yearsAtCompany < 3;
+const newerNonEngineeringEmployees = employees.filter((employee) => {
+    return employee.department !== 'Engineering' && (employee.yearsAtCompany === 1 || employee.yearsAtCompany === 2);
 });
-console.log(employeeUnderReview);
+console.log(newerNonEngineeringEmployees);
+// const engineeringEmployeesWithFiveOrEightYears = employees.filter(
+//   (employee) => {
+//     return (
+//       employee.department === 'Engineering' &&
+//       (employee.yearsAtCompany === 5 || employee.yearsAtCompany === 8)
+//     );
+//   },
+// );
+// console.log(engineeringEmployeesWithFiveOrEightYears);
+// const newerMarketingOrHREmployees = employees.filter((employee) => {
+//     return (employee.department === 'Marketing' || employee.department === 'HR') && employee.yearsAtCompany <= 2;
+// });
+// console.log(newerMarketingOrHREmployees);
+// const engineeringEmployeesUnderEightYears = employees.filter((employee) => {
+//     return employee.department === 'Engineering' && employee.yearsAtCompany < 8;
+// });
+// console.log(engineeringEmployeesUnderEightYears);
+// const newerNonHREmployees = employees.filter((employee) => {
+//     return employee.yearsAtCompany < 5 && employee.department !== 'HR';
+// });
+// console.log(newerNonHREmployees);
+// const seniorOrHREmployees = employees.filter((employee) => {
+//   return employee.yearsAtCompany >= 5 || employee.department === 'HR';
+// });
+// console.log(seniorOrHREmployees);
+// const experiencedNonMarketingEmployees = employees.filter((employee) => {
+//     return employee.yearsAtCompany > 1 && employee.department !== 'Marketing';
+// });
+// console.log(experiencedNonMarketingEmployees);
+// const marketingOrOneYearEmployees = employees.filter((employee) => {
+//     return employee.department === 'Marketing' || employee.yearsAtCompany === 1;
+// });
+// console.log(marketingOrOneYearEmployees);
+// const engineeringOrHREmployees = employees.filter((employee) => {
+//     return employee.department === 'Engineering' || employee.department === 'HR';
+// });
+// console.log(engineeringOrHREmployees);
+// const employeeComitted = employees.filter((employee) => {
+//     return employee.yearsAtCompany >= 2 && employee.yearsAtCompany < 8;
+// });
+// console.log(employeeComitted);
+// const employeeUnderReview = employees.filter((employee) => {
+//     return employee.department !== 'Engineering' && employee.yearsAtCompany < 3;
+// });
+// console.log(employeeUnderReview);
 // const employeesNoHR = employees.filter((employee) => {
 //     return employee.department !== 'HR';
 // });
