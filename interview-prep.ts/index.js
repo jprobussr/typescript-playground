@@ -1,8 +1,62 @@
-const numbers = [5, 12, 18, 21, 30, 7];
-const divisibleByThree = numbers.filter((number) => {
-    return number % 3 === 0;
+const employees = [
+    {
+        name: 'John',
+        department: 'Engineering',
+        yearsAtCompany: 5,
+    },
+    {
+        name: 'Amy',
+        department: 'Marketing',
+        yearsAtCompany: 2,
+    },
+    {
+        name: 'Chris',
+        department: 'Engineering',
+        yearsAtCompany: 8,
+    },
+    {
+        name: 'Sarah',
+        department: 'HR',
+        yearsAtCompany: 1,
+    },
+];
+const employeeUnderReview = employees.filter((employee) => {
+    return employee.department !== 'Engineering' && employee.yearsAtCompany < 3;
 });
-console.log(divisibleByThree);
+console.log(employeeUnderReview);
+// const employeesNoHR = employees.filter((employee) => {
+//     return employee.department !== 'HR';
+// });
+// console.log(employeesNoHR);
+// const marketingEmployeeStar = employees.filter((employee) => {
+//     return employee.department === 'Marketing' || employee.yearsAtCompany >= 5;
+// });
+// console.log(marketingEmployeeStar);
+// const employeeStar = employees.filter((employee) => {
+//     return employee.department === 'Engineering' && employee.yearsAtCompany >= 5;
+// });
+// console.log(employeeStar);
+// const employeeFiveYears = employees.filter((employee) => {
+//     return employee.yearsAtCompany >= 5;
+// });
+// console.log(employeeFiveYears);
+// const employeeWithLongerNames = employees.filter((employee) => {
+//     return employee.name.length > 4;
+// });
+// console.log(employeeWithLongerNames);
+// const longTermEmployees = employees.filter((employee) => {
+//     return employee.yearsAtCompany >= 3;
+// });
+// console.log(longTermEmployees);
+// const engineers = employees.filter((employee) => {
+//     return employee.department === 'Engineering';
+// });
+// console.log(engineers);
+// const numbers = [5, 12, 18, 21, 30, 7];
+// const divisibleByThree = numbers.filter((number) => {
+//     return number % 3 === 0;
+// });
+// console.log(divisibleByThree);
 // const words = ['apple', 'banana', 'kiwi', 'avocado', 'grape'];
 // const startWordWithA = words.filter((word) => {
 //     return word[0] === 'a';
