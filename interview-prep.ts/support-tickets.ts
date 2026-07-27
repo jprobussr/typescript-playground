@@ -37,6 +37,80 @@ const supportTickets: SupportTicket[] = [
   },
 ];
 
+const activeTickets = supportTickets.filter((ticket) => {
+  return ticket.isResolved === false;
+});
+
+console.log(activeTickets);
+
+// const updatedPriorityTickets = supportTickets.map((ticket) => {
+//   if (ticket.id === 104) {
+//     return {
+//       ...ticket,
+//       priority: 'high',
+//     };
+//   }
+//   return ticket;
+// });
+
+// console.log(updatedPriorityTickets);
+
+
+
+// const unresolvedLowPriorityTicketCount = supportTickets.filter((ticket) => {
+//   return ticket.priority === 'low' && !ticket.isResolved;
+// }).length;
+
+// console.log(unresolvedLowPriorityTicketCount);
+
+// const allTicketsResolved = supportTickets.every((ticket) => {
+//   return ticket.isResolved;
+// })
+
+// console.log(allTicketsResolved);
+
+// const urgentCustomerNames = supportTickets.filter((ticket) => {
+//   return ticket.priority === 'high' && ticket.isResolved === false;
+// }).map((ticket) => {
+//   return ticket.customerName;
+// });
+
+// console.log(urgentCustomerNames);
+
+// const ticketLabels = supportTickets.map((ticket) => {
+//   return `${ticket.id} - ${ticket.issue}`;
+// });
+
+// console.log(ticketLabels);
+
+// const hasUnresolvedMediumPriorityTicket = supportTickets.some((ticket) => {
+//   return ticket.priority === 'medium' && ticket.isResolved === false;
+// });
+
+// console.log(hasUnresolvedMediumPriorityTicket);
+
+// const firstLowPriorityTicket = supportTickets.find((ticket) => {
+//   return ticket.priority === 'low';
+// });
+
+// console.log(firstLowPriorityTicket);
+
+// const resolvedCustomerNames = supportTickets
+//   .filter((ticket) => {
+//     return ticket.isResolved;
+//   })
+//   .map((ticket) => {
+//     return ticket.customerName;
+//   });
+
+// console.log(resolvedCustomerNames);
+
+// const highPriorityTickets = supportTickets.filter((ticket) => {
+//   return ticket.priority === 'high';
+// }).length;
+
+// console.log(highPriorityTickets);
+
 // const removeTicket = (id: number) => {
 //     return supportTickets.filter((ticket) => {
 //         return ticket.id !== id;
@@ -44,7 +118,6 @@ const supportTickets: SupportTicket[] = [
 // };
 
 // console.log(removeTicket(101));
-
 
 // const removeTicket = (id: number) => {
 //     return supportTickets.filter((ticket) => {
