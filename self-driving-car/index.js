@@ -5,7 +5,16 @@ class Car {
         this.isRunning = props.isRunning;
     }
 }
+class SteeringControl {
+    execute(command) {
+        console.log(`Executing: ${command}`);
+    }
+    turn(direction) {
+        this.execute(`turn ${direction}`);
+    }
+}
+const steering = new SteeringControl();
+steering.turn('right');
 const autonomousCar = new Car({
     isRunning: true,
 });
-console.log(autonomousCar.isRunning);
