@@ -65,15 +65,103 @@ const deliveries: Delivery[] = [
   },
 ];
 
-const deliverySummaries = deliveries.map((delivery) => {
-  return {
-    customerName: delivery.customerName,
-    status: delivery.status,
-    fee: delivery.fee,
-  };
-});
+// const deliveryCountByStatus = deliveries.reduce(
+//   (counts, delivery) => {
+//     counts[delivery.status] += 1;
 
-console.log(deliverySummaries);
+//     return counts;
+//   },
+//   {
+//     pending: 0,
+//     'in-transit': 0,
+//     delivered: 0,
+//   },
+// );
+
+// console.log(deliveryCountByStatus);
+
+// const highestPayingDelivery = deliveries.reduce((highest, delivery) => {
+//   return delivery.fee > highest.fee ? delivery : highest;
+// }, deliveries[0]);
+
+// console.log(highestPayingDelivery);
+
+// const increasedFeeDeliveries = deliveries.map((delivery) => {
+//   return {
+//     ...delivery,
+//     fee: delivery.fee + 10,
+//   };
+// });
+
+// console.log(increasedFeeDeliveries);
+
+// const updatedDeliveries = deliveries.map((delivery) => {
+//   if (delivery.id === 203) {
+//     return {
+//       ...delivery,
+//       status: 'in-transit',
+//     };
+//   }
+//   return delivery;
+// });
+
+// console.log(updatedDeliveries);
+
+// const deliveryLabels = deliveries.map((delivery) => {
+//   return `${delivery.customerName} - ${delivery.status}`;
+// });
+
+// console.log(deliveryLabels);
+
+// const totalDeliveryMiles = deliveries.reduce((total, delivery) => {
+//   return total + delivery.distanceMiles;
+// }, 0);
+
+// console.log(`Total miles: ${totalDeliveryMiles} miles.`);
+
+// const totalDeliveryFees = deliveries.reduce((total, delivery) => {
+//   return total + delivery.fee;
+// }, 0);
+
+// console.log(`Total Delivery fees: $${totalDeliveryFees}`);
+
+// const averageDeliveryFee = totalDeliveryFees / deliveries.length;
+
+// console.log(`Average delivery fee $${averageDeliveryFee}`);
+
+// const pendingDeliveryCount = deliveries.filter((delivery) => {
+//   return delivery.status === 'pending';
+// }).length;
+
+// console.log(pendingDeliveryCount);
+
+// const activeDeliveries = deliveries.filter((delivery) => {
+//   return delivery.status !== 'delivered';
+// });
+
+// console.log(activeDeliveries);
+
+// const finishedDeliveries = deliveries.filter((delivery) => {
+//   return delivery.status === 'delivered';
+// });
+
+// console.log(finishedDeliveries);
+
+// const deliveryById = deliveries.find((delivery) => {
+//   return delivery.id === 204;
+// });
+
+// console.log(deliveryById);
+
+// const deliverySummaries = deliveries.map((delivery) => {
+//   return {
+//     customerName: delivery.customerName,
+//     status: delivery.status,
+//     fee: delivery.fee,
+//   };
+// });
+
+// console.log(deliverySummaries);
 
 // const expensivePriorityDeliveries = deliveries.filter((delivery) => {
 //   return delivery.isPriority && delivery.fee > 100;
