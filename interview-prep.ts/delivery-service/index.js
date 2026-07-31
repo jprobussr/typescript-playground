@@ -54,15 +54,79 @@ const deliveries = [
         isPriority: true,
     },
 ];
-const deliveryCountByStatus = deliveries.reduce((counts, delivery) => {
-    counts[delivery.status] += 1;
-    return counts;
-}, {
-    pending: 0,
-    'in-transit': 0,
-    delivered: 0,
-});
-console.log(deliveryCountByStatus);
+const longDistanceDeliveryCount = deliveries.reduce((count, delivery) => {
+    if (delivery.distanceMiles > 50) {
+        return count + 1;
+    }
+    return count;
+}, 0);
+console.log(longDistanceDeliveryCount);
+// const priorityInTransitFees = deliveries.reduce((total, delivery) => {
+//   if (delivery.isPriority && delivery.status === 'in-transit') {
+//     return total + delivery.fee;
+//   }
+//   return total;
+// }, 0);
+// console.log(priorityInTransitFees);
+// const nonPriorityMiles = deliveries.reduce((total, delivery) => {
+//   if (!delivery.isPriority) {
+//     return total + delivery.distanceMiles;
+//   }
+//   return total;
+// }, 0);
+// console.log(nonPriorityMiles);
+// const pendingMiles = deliveries.reduce((total, delivery) => {
+//   if (delivery.status === 'pending') {
+//     return total + delivery.distanceMiles;
+//   }
+//   return total;
+// }, 0);
+// console.log(pendingMiles);
+// const deliveredFees = deliveries.reduce((total, delivery) => {
+//   if (delivery.status === 'delivered') {
+//     return total + delivery.fee;
+//   }
+//   return total;
+// }, 0);
+// console.log(deliveredFees);
+// const priorityFees = deliveries.reduce((total, delivery) => {
+//   if (delivery.isPriority) {
+//     return total + delivery.fee
+//   }
+//   return total;
+// }, 0);
+// console.log(priorityFees);
+// const priorityCount = deliveries.reduce(
+//   (counts, delivery) => {
+//     if (delivery.isPriority) {
+//       counts.priority += 1;
+//     } else {
+//       counts.standard += 1;
+//     }
+//     return counts;
+//   },
+//   {
+//     priority: 0,
+//     standard: 0,
+//   },
+// );
+// console.log(priorityCount);
+// const lowestFeeDelivery = deliveries.reduce((lowest, delivery) => {
+//   return delivery.fee < lowest.fee ? delivery : lowest;
+// }, deliveries[0]);
+// console.log(lowestFeeDelivery);
+// const deliveryCountByStatus = deliveries.reduce(
+//   (counts, delivery) => {
+//     counts[delivery.status] += 1;
+//     return counts;
+//   },
+//   {
+//     pending: 0,
+//     'in-transit': 0,
+//     delivered: 0,
+//   },
+// );
+// console.log(deliveryCountByStatus);
 // const highestPayingDelivery = deliveries.reduce((highest, delivery) => {
 //   return delivery.fee > highest.fee ? delivery : highest;
 // }, deliveries[0]);
