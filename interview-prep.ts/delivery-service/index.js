@@ -54,13 +54,89 @@ const deliveries = [
         isPriority: true,
     },
 ];
-const longDistanceDeliveryCount = deliveries.reduce((count, delivery) => {
-    if (delivery.distanceMiles > 50) {
-        return count + 1;
+const deliveryStatusCounts = deliveries.reduce((counts, delivery) => {
+    if (delivery.status === 'pending') {
+        counts.pending += 1;
     }
-    return count;
-}, 0);
-console.log(longDistanceDeliveryCount);
+    else if (delivery.status === 'in-transit') {
+        counts.inTransit += 1;
+    }
+    else {
+        counts.delivered += 1;
+    }
+    return counts;
+}, { pending: 0, inTransit: 0, delivered: 0 });
+console.log(deliveryStatusCounts);
+// const deliveryFeeCounts = deliveries.reduce(
+//   (counts, delivery) => {
+//     if (delivery.fee <= 80) {
+//       counts.affordable += 1;
+//     } else {
+//       counts.expensive += 1;
+//     }
+//     return counts;
+//   },
+//   {
+//     affordable: 0,
+//     expensive: 0,
+//   },
+// );
+// console.log(deliveryFeeCounts);
+// const deliveryDistanceCounts = deliveries.reduce(
+//   (counts, delivery) => {
+//     if (delivery.distanceMiles <= 50) {
+//       counts.shortDistance += 1;
+//     } else {
+//       counts.longDistance += 1;
+//     }
+//     return counts;
+//   },
+//   { shortDistance: 0, longDistance: 0 },
+// );
+// console.log(deliveryDistanceCounts);
+// const deliveryPriorityCounts = deliveries.reduce(
+//   (counts, delivery) => {
+//     if (delivery.isPriority) {
+//       counts.priority += 1;
+//     } else {
+//       counts.nonPriority += 1;
+//     }
+//     return counts;
+//   },
+//   {
+//     priority: 0,
+//     nonPriority: 0,
+//   },
+// );
+// console.log(deliveryPriorityCounts);
+// const shortDistanceStandardCount = deliveries.reduce((count, delivery) => {
+//   if (!delivery.isPriority && delivery.distanceMiles < 50) {
+//     return count + 1;
+//   }
+//   return count;
+// }, 0);
+// console.log(shortDistanceStandardCount);
+// const priorityDeliveredCount = deliveries.reduce((count, delivery) => {
+//   if (delivery.isPriority && delivery.status === 'delivered') {
+//     return count + 1;
+//   }
+//   return count;
+// }, 0);
+// console.log(priorityDeliveredCount);
+// const pendingDeliveryCount = deliveries.reduce((count, delivery) => {
+//   if (delivery.status === 'pending') {
+//     return count + 1;
+//   }
+//   return count;
+// }, 0);
+// console.log(pendingDeliveryCount);
+// const longDistanceDeliveryCount = deliveries.reduce((count, delivery) => {
+//   if (delivery.distanceMiles > 50) {
+//     return count + 1;
+//   }
+//   return count;
+// }, 0);
+// console.log(longDistanceDeliveryCount);
 // const priorityInTransitFees = deliveries.reduce((total, delivery) => {
 //   if (delivery.isPriority && delivery.status === 'in-transit') {
 //     return total + delivery.fee;
