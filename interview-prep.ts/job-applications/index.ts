@@ -72,7 +72,7 @@ const applicationStatusCounts = applications.reduce(
   },
 );
 
-console.log(applicationStatusCounts);
+
 
 // const lowestSalaryApplication = applications.reduce((lowest, app) => {
 //     return app.salary < lowest.salary ? app : lowest;
