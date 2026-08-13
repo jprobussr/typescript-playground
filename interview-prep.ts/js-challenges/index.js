@@ -1,8 +1,54 @@
-const numbers = [12, 45, 7, 89, 34];
-const smallestNumber = numbers.reduce((lowest, num) => {
-    return num < lowest ? num : lowest;
-}, numbers[0]);
-console.log(smallestNumber);
+const words = ['cat', 'javascript', 'developer', 'code', 'frontend'];
+const longestWord = words.reduce((longest, word) => {
+    return word.length > longest.length ? word : longest;
+}, words[0]);
+console.log(longestWord);
+// const word = 'javascript';
+// const letters = word.split('');
+// const vowels = ['a', 'e', 'i', 'o', 'u'];
+// const vowelLetters = letters.filter((letter) => {
+//   return vowels.includes(letter);
+// });
+// console.log(vowelLetters.length);
+// const numbers = [14, 3, 27, 8, 19, 6, 11];
+// const smallestOddNumber = numbers.reduce((smallest, number) => {
+//     return number % 2 !== 0 && number < smallest ? number : smallest;
+// }, numbers[0]);
+// console.log(smallestOddNumber);
+// const numbers = [15, 4, 22, 9, 31, 18, 7];
+// const largestOddNumber = numbers.reduce((highest, number) => {
+//     return number % 2 !== 0 && number > highest ? number : highest;
+// }, numbers[0]);
+// console.log(largestOddNumber);
+// const numbers = [3, 7, 12, 5, 18, 21, 4, 10];
+// const numbersGreaterThanFiveAndEven = numbers.reduce((count, number) => {
+//     if (number > 5 && number % 2 === 0) {
+//         return count + 1;
+//     }
+//     return count;
+// }, 0);
+// console.log(numbersGreaterThanFiveAndEven);
+// const numbers = [5, 12, 8, 21, 15, 3];
+// const totalSumGreaterThanTen = numbers.reduce((total, number) => {
+//     if (number > 10) {
+//         return number + total;
+//     }
+//     return total;
+// }, 0);
+// console.log(totalSumGreaterThanTen);
+// const numbers = [4, 7, 10, 3, 8, 11, 14];
+// const evenNumbers = numbers.reduce((count, number) => {
+//   if (number % 2 === 0) {
+//     return (count + 1);
+//   }
+//   return count;
+// }, 0);
+// console.log(evenNumbers);
+// const numbers = [12, 45, 7, 89, 34];
+// const smallestNumber = numbers.reduce((lowest, num) => {
+//     return num < lowest ? num : lowest;
+// }, numbers[0]);
+// console.log(smallestNumber);
 // const numbers = [12, 45, 7, 89, 34];
 // const largestNumber = numbers.reduce((highest, num) => {
 //     return highest < num ? num : highest;
