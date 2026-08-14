@@ -1,3 +1,75 @@
+const developers = [
+  { name: 'Maya', experience: 2, language: 'TypeScript', isAvailable: true },
+  { name: 'Jordan', experience: 4, language: 'JavaScript', isAvailable: false },
+  { name: 'Sofia', experience: 1, language: 'TypeScript', isAvailable: true },
+  { name: 'Marcus', experience: 5, language: 'JavaScript', isAvailable: true },
+  { name: 'Ava', experience: 3, language: 'TypeScript', isAvailable: false },
+];
+
+const developerSummary = developers.map((developer) => {
+    return `${developer.name} - ${developer.experience} years.`;
+});
+
+console.log(developerSummary);
+
+// const leastExperiencedDeveloper = developers.reduce((lowest, developer) => {
+//     return developer.experience < lowest.experience ? developer : lowest;
+// }, developers[0]);
+
+// console.log(leastExperiencedDeveloper);
+
+// const mostExperiencedDeveloper = developers.reduce((highest, developer) => {
+//     return developer.experience > highest.experience ? developer : highest;
+// }, developers[0]);
+
+// console.log(mostExperiencedDeveloper);
+
+// const allDevelopersHaveExperience = developers.every((developer) => {
+//     return developer.experience >= 1;
+// });
+
+// console.log(allDevelopersHaveExperience);
+
+// const availableTypeScriptExperience = developers.filter((developer) => {
+//     return developer.language === 'TypeScript' && developer.isAvailable;
+// }).reduce((total, developer) => {
+//     return total + developer.experience;
+// }, 0);
+
+// console.log(availableTypeScriptExperience);
+
+// const totalExperience = developers.reduce((total, developer) => {
+//     return developer.experience + total;
+// }, 0);
+
+// console.log(totalExperience);
+
+// const hasSeniorDeveloper = developers.some((developer) => {
+//     return developer.experience >= 5;
+// });
+
+// console.log(hasSeniorDeveloper);
+
+// const experiencedDeveloper = developers.find((developer) => {
+//     return developer.experience >= 4;
+// });
+
+// console.log(experiencedDeveloper);
+
+// const typeScriptDevelopersName = developers.filter((developer) => {
+//     return developer.language === 'TypeScript';
+// }).map((developer) => {
+//     return developer.name;
+// });
+
+// console.log(typeScriptDevelopersName);
+
+// const availableDevelopers = developers.filter((developer) => {
+//     return developer.isAvailable;
+// });
+
+// console.log(availableDevelopers);
+
 // const words = ['cat', 'javascript', 'developer', 'code', 'frontend'];
 
 // const longestWord = words.reduce((longest, word) => {
@@ -5,8 +77,6 @@
 // }, words[0]);
 
 // console.log(longestWord);
-
-
 
 // const word = 'javascript';
 
@@ -19,8 +89,6 @@
 // });
 
 // console.log(vowelLetters.length);
-
-
 
 // const numbers = [14, 3, 27, 8, 19, 6, 11];
 
