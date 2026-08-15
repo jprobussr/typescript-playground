@@ -1,16 +1,42 @@
-const developers = [
-  { name: 'Maya', experience: 2, language: 'TypeScript', isAvailable: true },
-  { name: 'Jordan', experience: 4, language: 'JavaScript', isAvailable: false },
-  { name: 'Sofia', experience: 1, language: 'TypeScript', isAvailable: true },
-  { name: 'Marcus', experience: 5, language: 'JavaScript', isAvailable: true },
-  { name: 'Ava', experience: 3, language: 'TypeScript', isAvailable: false },
-];
 
-const developerSummary = developers.map((developer) => {
-    return `${developer.name} - ${developer.experience} years.`;
-});
 
-console.log(developerSummary);
+// const developers = [
+//   { name: 'Maya', experience: 2, language: 'TypeScript', isAvailable: true },
+//   { name: 'Jordan', experience: 4, language: 'JavaScript', isAvailable: false },
+//   { name: 'Sofia', experience: 1, language: 'TypeScript', isAvailable: true },
+//   { name: 'Marcus', experience: 5, language: 'JavaScript', isAvailable: true },
+//   { name: 'Ava', experience: 3, language: 'TypeScript', isAvailable: false },
+// ];
+
+// const calculateDiscount = (price: number): number => {
+//   if (price >= 100) {
+//     return price - price * 0.2;
+//   }
+//   return price;
+// };
+
+// console.log(calculateDiscount(200));
+// console.log(calculateDiscount(80));
+
+// const getDeveloperLevel = (experience: number): string => {
+//   if (experience < 2) {
+//     return 'Junior';
+//   } else if (experience  >= 2 && experience <= 4) {
+//     return 'Mid-Level';
+//   } else {
+//     return 'Senior';
+//   }
+// };
+
+// console.log(getDeveloperLevel(1));
+// console.log(getDeveloperLevel(3));
+// console.log(getDeveloperLevel(5));
+
+// const developerSummary = developers.map((developer) => {
+//     return `${developer.name} - ${developer.experience} years.`;
+// });
+
+// console.log(developerSummary);
 
 // const leastExperiencedDeveloper = developers.reduce((lowest, developer) => {
 //     return developer.experience < lowest.experience ? developer : lowest;
