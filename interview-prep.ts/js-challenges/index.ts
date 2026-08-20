@@ -1,5 +1,3 @@
-
-
 // const developers = [
 //   { name: 'Maya', experience: 2, language: 'TypeScript', isAvailable: true },
 //   { name: 'Jordan', experience: 4, language: 'JavaScript', isAvailable: false },

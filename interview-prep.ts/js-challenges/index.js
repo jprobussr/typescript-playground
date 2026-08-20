@@ -1,18 +1,18 @@
-const developers = [
-    { name: 'Maya', experience: 2, language: 'TypeScript', isAvailable: true },
-    { name: 'Jordan', experience: 4, language: 'JavaScript', isAvailable: false },
-    { name: 'Sofia', experience: 1, language: 'TypeScript', isAvailable: true },
-    { name: 'Marcus', experience: 5, language: 'JavaScript', isAvailable: true },
-    { name: 'Ava', experience: 3, language: 'TypeScript', isAvailable: false },
-];
-const calculateDiscount = (price) => {
-    if (price >= 100) {
-        return price - price * 0.2;
-    }
-    return price;
-};
-console.log(calculateDiscount(200));
-console.log(calculateDiscount(80));
+// const developers = [
+//   { name: 'Maya', experience: 2, language: 'TypeScript', isAvailable: true },
+//   { name: 'Jordan', experience: 4, language: 'JavaScript', isAvailable: false },
+//   { name: 'Sofia', experience: 1, language: 'TypeScript', isAvailable: true },
+//   { name: 'Marcus', experience: 5, language: 'JavaScript', isAvailable: true },
+//   { name: 'Ava', experience: 3, language: 'TypeScript', isAvailable: false },
+// ];
+// const calculateDiscount = (price: number): number => {
+//   if (price >= 100) {
+//     return price - price * 0.2;
+//   }
+//   return price;
+// };
+// console.log(calculateDiscount(200));
+// console.log(calculateDiscount(80));
 // const getDeveloperLevel = (experience: number): string => {
 //   if (experience < 2) {
 //     return 'Junior';
