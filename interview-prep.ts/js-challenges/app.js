@@ -1,15 +1,78 @@
 const developers = [
-    { name: 'Alex', experience: 2 },
-    { name: 'Jordan', experience: 5 },
-    { name: 'Taylor', experience: 1 },
-    { name: 'Morgan', experience: 7 }
+    { name: 'Maya', experience: 2, isAvailable: true },
+    { name: 'Jordan', experience: 5, isAvailable: false },
+    { name: 'Sofia', experience: 4, isAvailable: true },
+    { name: 'Ethan', experience: 1, isAvailable: true },
 ];
-const developersNamesWithAtleastThreeYearsExperience = developers.filter((developer) => {
-    return developer.experience >= 3;
-}).map((developer) => {
-    return developer.name;
-});
-console.log(developersNamesWithAtleastThreeYearsExperience);
+const devWithLeastExperience = developers.reduce((lowest, developer) => {
+    return lowest.experience > developer.experience ? developer : lowest;
+}, developers[0]);
+console.log(devWithLeastExperience);
+// const devWithMostExperience = developers.reduce((highest, developer) => {
+//   return highest.experience < developer.experience ? developer : highest;
+// }, developers[0]);
+// console.log(devWithMostExperience);
+// const devTotalYearsAvailable = developers.reduce((total, developer) => {
+//   if (developer.isAvailable) {
+//     return total + developer.experience;
+//   }
+//   return total;
+// }, 0);
+// console.log(devTotalYearsAvailable);
+// const availableDevelopers = developers.reduce((count, developer) => {
+//     if (developer.isAvailable) {
+//         return count + 1;
+//     }
+//     return count;
+// }, 0);
+// console.log(availableDevelopers);
+// const totalDevExperience = developers.reduce((total, developer) => {
+//     return developer.experience + total;
+// }, 0);
+// console.log(totalDevExperience);
+// const firstNonAvailableDeveloper = developers.find((developer) => {
+//   return !developer.isAvailable;
+// });
+// console.log(firstNonAvailableDeveloper);
+// const devWithOneYear = developers.every((developer) => {
+//     return developer.experience >= 1;
+// });
+// console.log(devWithOneYear);
+// const developerFiveYearsExperience = developers.some((developer) => {
+//     return developer.experience >= 5;
+// });
+// console.log(developerFiveYearsExperience);
+// const experiencedDevelopers = developers.filter((developer) => {
+//     return developer.experience >= 3 && developer.isAvailable;
+// }).map((developer) => {
+//     return developer.name;
+// });
+// console.log(experiencedDevelopers);
+// const numbers = [4, 9, 12, 7, 18, 3, 20];
+// const numsGreaterThanTenAndDoubled = numbers
+//   .filter((number) => {
+//     return number > 10;
+//   })
+//   .map((number) => {
+//     return number * 2;
+//   });
+// console.log(numsGreaterThanTenAndDoubled);
+// const firstNumberGreaterThanTen = numbers.find((number) => {
+//     return number > 10;
+// });
+// console.log(firstNumberGreaterThanTen);
+// const developers = [
+//   { name: 'Alex', experience: 2 },
+//   { name: 'Jordan', experience: 5 },
+//   { name: 'Taylor', experience: 1 },
+//   { name: 'Morgan', experience: 7 }
+// ];
+// const developersNamesWithAtleastThreeYearsExperience = developers.filter((developer) => {
+//     return developer.experience >= 3;
+// }).map((developer) => {
+//     return developer.name;
+// });
+// console.log(developersNamesWithAtleastThreeYearsExperience);
 // const words = ['apple', 'banana', 'kiwi', 'watermelon', 'pear'];
 // const firstWordMoreThanSixCharacters = words.find((word) => {
 //     return word.length > 6;
