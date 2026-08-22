@@ -1,13 +1,70 @@
-const developers = [
-    { name: 'Maya', experience: 2, isAvailable: true },
-    { name: 'Jordan', experience: 5, isAvailable: false },
-    { name: 'Sofia', experience: 4, isAvailable: true },
-    { name: 'Ethan', experience: 1, isAvailable: true },
-];
-const devWithLeastExperience = developers.reduce((lowest, developer) => {
-    return lowest.experience > developer.experience ? developer : lowest;
-}, developers[0]);
-console.log(devWithLeastExperience);
+const numbers = [6, 13, 8, 21, 4, 17, 10];
+const sumOfOddNumbers = numbers
+    .filter((number) => {
+    return number % 2 !== 0;
+})
+    .reduce((total, number) => {
+    return total + number;
+}, 0);
+console.log(sumOfOddNumbers);
+const sumOddNumbers = numbers.reduce((total, number) => {
+    if (number % 2 !== 0) {
+        return total + number;
+    }
+    return total;
+}, 0);
+console.log(sumOddNumbers);
+// const evenNumbersDoubled = numbers.filter((number) => {
+//   return number % 2 === 0;
+// }).map((number) => {
+//   return number * 2;
+// });
+// console.log(evenNumbersDoubled);
+// const smallestNumber = numbers.reduce((lowest, number) => {
+//   return lowest > number ? number : lowest;
+// }, numbers[0]);
+// console.log(smallestNumber);
+// const largestNumber = numbers.reduce((highest, number) => {
+//   return highest < number ? number : highest;
+// }, numbers[0]);
+// console.log(largestNumber);
+// const countNumbersGreaterThanTen = numbers.reduce((count, number) => {
+//   if (number > 10) {
+//     return count + 1;
+//   }
+//   return count;
+// }, 0);
+// console.log(countNumbersGreaterThanTen);
+// const sumNumbers = numbers.reduce((total, number) => {
+//   return total + number;
+// }, 0);
+// console.log(sumNumbers);
+// const everyNumberGreaterThanZero = numbers.every((number) => {
+//   return number > 0;
+// });
+// console.log(everyNumberGreaterThanZero);
+// const numberGreaterThanTwenty = numbers.some((number) => {
+//   return number > 20;
+// });
+// console.log(numberGreaterThanTwenty);
+// const numberEvenAndGreaterThanTen = numbers.find((number) => {
+//   return number > 10 && number % 2 === 0;
+// });
+// console.log(numberEvenAndGreaterThanTen);
+// const numbersGreaterThanTen = numbers.filter((number) =>  {
+//   return number > 10;
+// });
+// console.log(numbersGreaterThanTen);
+// const developers = [
+//   { name: 'Maya', experience: 2, isAvailable: true },
+//   { name: 'Jordan', experience: 5, isAvailable: false },
+//   { name: 'Sofia', experience: 4, isAvailable: true },
+//   { name: 'Ethan', experience: 1, isAvailable: true },
+// ];
+// const devWithLeastExperience = developers.reduce((lowest, developer) => {
+//     return lowest.experience > developer.experience ? developer : lowest;
+// }, developers[0]);
+// console.log(devWithLeastExperience);
 // const devWithMostExperience = developers.reduce((highest, developer) => {
 //   return highest.experience < developer.experience ? developer : highest;
 // }, developers[0]);
