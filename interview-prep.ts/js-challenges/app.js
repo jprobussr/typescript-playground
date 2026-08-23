@@ -1,19 +1,19 @@
-const numbers = [6, 13, 8, 21, 4, 17, 10];
-const sumOfOddNumbers = numbers
-    .filter((number) => {
-    return number % 2 !== 0;
-})
-    .reduce((total, number) => {
-    return total + number;
-}, 0);
-console.log(sumOfOddNumbers);
-const sumOddNumbers = numbers.reduce((total, number) => {
-    if (number % 2 !== 0) {
-        return total + number;
-    }
-    return total;
-}, 0);
-console.log(sumOddNumbers);
+// const numbers = [6, 13, 8, 21, 4, 17, 10];
+// const sumOfOddNumbers = numbers
+//   .filter((number) => {
+//     return number % 2 !== 0;
+//   })
+//   .reduce((total, number) => {
+//     return total + number;
+//   }, 0);
+// console.log(sumOfOddNumbers);
+// const sumOddNumbers = numbers.reduce((total, number) => {
+//   if (number % 2 !== 0) {
+//     return total + number;
+//   }
+//   return total;
+// }, 0);
+// console.log(sumOddNumbers);
 // const evenNumbersDoubled = numbers.filter((number) => {
 //   return number % 2 === 0;
 // }).map((number) => {
