@@ -1,8 +1,141 @@
-const username = 'john_probus';
-const isValidUserName = (username) => {
-    return username.length >= 6 && username.includes('_');
+const numbers = [4, 7, 10, 13, 18];
+const getEvenNumber = (numbers) => {
+    let evenNumbers = [];
+    for (let number of numbers) {
+        if (number % 2 === 0) {
+            evenNumbers.push(number);
+        }
+    }
+    return evenNumbers;
 };
-console.log(isValidUserName(username));
+console.log(getEvenNumber(numbers));
+// type Course = {
+//   title: string;
+//   completed: boolean;
+// };
+// const courses: Course[] = [
+//   { title: 'JavaScript', completed: true },
+//   { title: 'TypeScript', completed: true },
+//   { title: 'Express', completed: false },
+// ];
+// const getFirstIncompleteCourse = (courses: Course[]): string => {
+//     for (let course of courses) {
+//         if (!course.completed) {
+//             return course.title;
+//         }
+//     }
+//     return `All courses completed.`;
+// }
+// console.log(getFirstIncompleteCourse(courses));
+// const usernames = ['maya', 'john_probus', 'liam', 'sofia_dev'];
+// const countDeveloperUserNames = (users: string[]): number => {
+//     let count = 0;
+//     for (let user of users) {
+//         if (user.includes('_')) {
+//             count += 1;
+//         }
+//     }
+//     return count;
+// }
+// console.log(countDeveloperUserNames(usernames));
+// type Job = {
+//   title: string;
+//   remote: boolean;
+//   salary: number;
+// };
+// const jobs: Job[] = [
+//   { title: 'Frontend Developer', remote: true, salary: 65000 },
+//   { title: 'Support Specialist', remote: false, salary: 48000 },
+//   { title: 'Junior Developer', remote: true, salary: 58000 },
+//   { title: 'Web Designer', remote: false, salary: 52000 },
+// ];
+// const getRemoteJobsTitles = (jobs: Job[]): string[] => {
+//     let remoteJobs: string[] = [];
+//     for (let job of jobs) {
+//         if (job.remote === true) {
+//             remoteJobs.push(job.title);
+//         }
+//     }
+//     return remoteJobs;
+// }
+// console.log(getRemoteJobsTitles(jobs));
+// const scores = [55, 92, 76, 88, 43];
+// const getFirstHighScore = (scores: number[]): number => {
+//     for (let score of scores) {
+//         if (score >= 80) {
+//             return score;
+//         }
+//     }
+//     return -1;
+// }
+// console.log(getFirstHighScore(scores));
+// type Product = {
+//     name: string;
+//     inStock: boolean;
+// }
+// const products: Product[] = [
+//   { name: 'Keyboard', inStock: true },
+//   { name: 'Mouse', inStock: false },
+//   { name: 'Monitor', inStock: true },
+// ];
+// const getInStockProductNames = (products: Product[]): string[] => {
+//     let inStockNames: string[] = [];
+//     for (let product of products) {
+//         if (product.inStock) {
+//            inStockNames.push(product.name);
+//         }
+//     }
+//     return inStockNames;
+// }
+// console.log(getInStockProductNames(products));
+// const ages = [17, 22, 16, 30, 19];
+// const countAdults = (ages: number[]): number => {
+//     let count = 0;
+//     for (let age of ages) {
+//         if (age >= 18) {
+//             count += 1;
+//         }
+//     }
+//     return count;
+// }
+// console.log(countAdults(ages));
+// const words = ['cat', 'elephant', 'dog', 'giraffe'];
+// const getFirstLongWord = (words: string[]): string => {
+//     for (let word of words) {
+//         if (word.length > 5) {
+//             return word;
+//         }
+//     }
+//     return `No long word found.`;
+// }
+// console.log(getFirstLongWord(words));
+// const names = ['Maya', 'Liam', 'Sofia', 'Noah'];
+// const longerNames = (names: string[]): string[] => {
+//   const longNames: string[] = [];
+//   for (let name of names) {
+//     if (name.length > 4) {
+//       longNames.push(name);
+//     }
+//   }
+//   return longNames;
+// };
+// console.log(longerNames(names));
+// const prices = [25, 80, 120, 45, 200];
+// const countExpensiveItems = (prices: number[]): number => {
+//     let count = 0;
+//     for (let price of prices) {
+//         if (price >= 100) {
+//             count += 1;
+//         }
+//     }
+//     return count;
+// }
+// console.log(countExpensiveItems(prices));
+// const username = 'john_probus';
+// const isValidUserName = (username: string): boolean => {
+//   return username.length >= 6 && username.includes('_');
+// };
+// console.log(isValidUserName(username));
 // type User = {
 //   username: string;
 //   isAdmin: boolean;
