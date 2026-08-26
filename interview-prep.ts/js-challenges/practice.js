@@ -1,14 +1,153 @@
-const numbers = [4, 7, 10, 13, 18];
-const getEvenNumber = (numbers) => {
-    let evenNumbers = [];
-    for (let number of numbers) {
-        if (number % 2 === 0) {
-            evenNumbers.push(number);
+const developers = [
+    {
+        name: 'Maya',
+        projects: [
+            { title: 'Portfolio', completed: true },
+            { title: 'Dashboard', completed: false },
+        ],
+    },
+    {
+        name: 'Liam',
+        projects: [
+            { title: 'API', completed: true },
+            { title: 'Blog', completed: true },
+        ],
+    },
+];
+const countDevelopersWithIncompleteProjects = (developers) => {
+    let count = 0;
+    for (let developer of developers) {
+        for (let project of developer.projects) {
+            if (!project.completed) {
+                count += 1;
+            }
         }
     }
-    return evenNumbers;
+    return count;
 };
-console.log(getEvenNumber(numbers));
+console.log(countDevelopersWithIncompleteProjects(developers));
+// const getDeveloperWithAllProjectsCompleted = (developers: Developer[]): string[] => {
+//   const developerNames: string[] = [];
+//   for (let developer of developers) {
+//     let allProjectsCompleted = true;
+//     for (let project of developer.projects) {
+//       if (!project.completed) {
+//         allProjectsCompleted = false;
+//       }
+//     }
+//     if (allProjectsCompleted) {
+//       developerNames.push(developer.name);
+//     }
+//   }
+//   return developerNames;
+// };
+// console.log(getDeveloperWithAllProjectsCompleted(developers));
+// const getDeveloperNamesWithCompletedProjects = (
+//   developers: Developer[],
+// ): string[] => {
+//   const developerNames: string[] = [];
+//   for (let developer of developers) {
+//     let hasCompletedProject = false;
+//     for (let project of developer.projects) {
+//       if (project.completed) {
+//         hasCompletedProject = true;
+//       }
+//     }
+//     if (hasCompletedProject) {
+//       developerNames.push(developer.name);
+//     }
+//   }
+//   return developerNames;
+// };
+// console.log(getDeveloperNamesWithCompletedProjects(developers));
+// const getFirstCompletedProjectTitle = (developers: Developer[]): string => {
+//   for (let developer of developers) {
+//     for (let project of developer.projects) {
+//       if (project.completed) {
+//         return project.title;
+//       }
+//     }
+//   }
+//   return 'No completed project found.';
+// }
+// console.log(getFirstCompletedProjectTitle(developers));
+// const getAllProjectTitles = (developers: Developer[]): string[] => {
+//   const projectTitles: string[] = [];
+//   for (let developer of developers) {
+//     for (let project of developer.projects) {
+//       projectTitles.push(project.title);
+//     }
+//   }
+//   return projectTitles
+// };
+// console.log(getAllProjectTitles(developers));
+// const countIncompleteProjects = (developers: Developer[]): number => {
+//   let count = 0;
+//   for (let developer of developers) {
+//     for (let project of developer.projects) {
+//       if (!project.completed) {
+//         count += 1;
+//       }
+//     }
+//   }
+//   return count;
+// }
+// console.log(countIncompleteProjects(developers));
+// const getCompletedProjectTitles = (developers: Developer[]): string[] => {
+//   const completedProjects: string[] = [];
+//   for (let developer of developers) {
+//     for (let project of developer.projects) {
+//       if (project.completed) {
+//         completedProjects.push(project.title);
+//       }
+//     }
+//   }
+//   return completedProjects;
+// }
+// console.log(getCompletedProjectTitles(developers));
+// const getDeveloperWithIncompleteProject = (developers: Developer[]): string => {
+//   for (let developer of developers) {
+//     for (let project of developer.projects) {
+//       if (!project.completed) {
+//         return developer.name;
+//       }
+//     }
+//   }
+//   return 'No incomplete project found.';
+// };
+// console.log(getDeveloperWithIncompleteProject(developers));
+// type Developer = {
+//   name: string;
+//   experience: number;
+//   isAvailable: boolean;
+// };
+// const developers: Developer[] = [
+//   { name: 'Maya', experience: 4, isAvailable: true },
+//   { name: 'Liam', experience: 2, isAvailable: true },
+//   { name: 'Sofia', experience: 5, isAvailable: false },
+//   { name: 'Noah', experience: 3, isAvailable: true },
+// ];
+// const getQualifiedDeveloperNames = (developers: Developer[]): string[] => {
+//   const qualifiedDevelopers: string[] = [];
+//   for (let developer of developers) {
+//     if (developer.isAvailable && developer.experience >= 3) {
+//       qualifiedDevelopers.push(developer.name);
+//     }
+//   }
+//   return qualifiedDevelopers;
+// };
+// console.log(getQualifiedDeveloperNames(developers));
+// const numbers = [4, 7, 10, 13, 18];
+// const getEvenNumber = (numbers: number[]): number[] => {
+//     let evenNumbers: number[] = [];
+//     for (let number of numbers) {
+//         if (number % 2 === 0) {
+//             evenNumbers.push(number);
+//         }
+//     }
+//     return evenNumbers;
+// }
+// console.log(getEvenNumber(numbers));
 // type Course = {
 //   title: string;
 //   completed: boolean;
