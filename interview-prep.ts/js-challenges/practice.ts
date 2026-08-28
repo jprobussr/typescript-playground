@@ -1,45 +1,45 @@
-type Project = {
-  title: string;
-  completed: boolean;
-};
+// type Project = {
+//   title: string;
+//   completed: boolean;
+// };
 
-type Developer = {
-  name: string;
-  projects: Project[];
-};
+// type Developer = {
+//   name: string;
+//   projects: Project[];
+// };
 
-const developers: Developer[] = [
-  {
-    name: 'Maya',
-    projects: [
-      { title: 'Portfolio', completed: true },
-      { title: 'Dashboard', completed: false },
-    ],
-  },
-  {
-    name: 'Liam',
-    projects: [
-      { title: 'API', completed: true },
-      { title: 'Blog', completed: true },
-    ],
-  },
-];
+// const developers: Developer[] = [
+//   {
+//     name: 'Maya',
+//     projects: [
+//       { title: 'Portfolio', completed: true },
+//       { title: 'Dashboard', completed: false },
+//     ],
+//   },
+//   {
+//     name: 'Liam',
+//     projects: [
+//       { title: 'API', completed: true },
+//       { title: 'Blog', completed: true },
+//     ],
+//   },
+// ];
 
-const countDevelopersWithIncompleteProjects = (developers: Developer[]): number => {
-  let count = 0;
+// const countDevelopersWithIncompleteProjects = (developers: Developer[]): number => {
+//   let count = 0;
 
-  for (let developer of developers) {
-    for (let project of developer.projects) {
-      if (!project.completed) {
-        count += 1;
-      }
-    }
-  }
+//   for (let developer of developers) {
+//     for (let project of developer.projects) {
+//       if (!project.completed) {
+//         count += 1;
+//       }
+//     }
+//   }
 
-  return count;
-}
+//   return count;
+// }
 
-console.log(countDevelopersWithIncompleteProjects(developers));
+// console.log(countDevelopersWithIncompleteProjects(developers));
 
 // const getDeveloperWithAllProjectsCompleted = (developers: Developer[]): string[] => {
 //   const developerNames: string[] = [];
