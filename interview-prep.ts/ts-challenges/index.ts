@@ -1,76 +1,213 @@
-type JobStatus = 'applied' | 'interview' | 'rejected' | 'offer';
-
 type JobApplication = {
-  id: number;
   company: string;
-  title: string;
+  position: string;
   salary: number;
   remote: boolean;
-  status: JobStatus;
-  skills: string[];
+  status: 'applied' | 'interview' | 'rejected' | 'offer';
 };
 
 const applications: JobApplication[] = [
   {
-    id: 1,
-    company: 'TechNova',
-    title: 'Junior Front-End Developer',
-    salary: 62000,
-    remote: true,
-    status: 'interview',
-    skills: ['HTML', 'CSS', 'JavaScript', 'React'],
-  },
-  {
-    id: 2,
-    company: 'DataForge',
-    title: 'TypeScript Developer',
+    company: 'TechFlow',
+    position: 'Frontend Developer',
     salary: 72000,
     remote: true,
-    status: 'applied',
-    skills: ['JavaScript', 'TypeScript', 'React'],
+    status: 'interview',
   },
   {
-    id: 3,
-    company: 'BluePeak',
-    title: 'Web Developer',
-    salary: 58000,
+    company: 'DataCore',
+    position: 'Junior Developer',
+    salary: 65000,
     remote: false,
-    status: 'rejected',
-    skills: ['HTML', 'CSS', 'JavaScript'],
+    status: 'applied',
   },
   {
-    id: 4,
-    company: 'CloudWorks',
-    title: 'Full-Stack Developer',
+    company: 'PixelWorks',
+    position: 'React Developer',
     salary: 78000,
     remote: true,
     status: 'offer',
-    skills: ['TypeScript', 'React', 'Node.js', 'Express'],
   },
   {
-    id: 5,
-    company: 'Pixel Labs',
-    title: 'React Developer',
-    salary: 68000,
-    remote: false,
-    status: 'interview',
-    skills: ['JavaScript', 'React', 'TypeScript'],
+    company: 'CloudNine',
+    position: 'TypeScript Developer',
+    salary: 82000,
+    remote: true,
+    status: 'rejected',
   },
 ];
 
-const getHighestPayingRemoteJob = (applications: JobApplication[]): JobApplication | undefined => {
-    let highestPayingJob: JobApplication | undefined;
+const getHighPayingRemoteSalary = (applications: JobApplication[]): number => {
+  let totalSalary = 0;
 
-    for (let application of applications) {
-        if (application.remote) {
-            if (!highestPayingJob || application.salary > highestPayingJob.salary) {
-                highestPayingJob = application;
-            }
-        }
+  for (let application of applications) {
+    if (application.remote && application.salary >= 75000) {
+      totalSalary += application.salary;
     }
+  }
 
-    return highestPayingJob;
+  return totalSalary;
 };
+
+console.log(getHighPayingRemoteSalary(applications));
+
+// const getTotalInterviewSalary = (applications: JobApplication[]): number => {
+//   let totalSalary = 0;
+
+//   for (let application of applications) {
+//     if (application.status === 'interview') {
+//       totalSalary += application.salary;
+//     }
+//   }
+
+//   return totalSalary;
+// };
+
+// console.log(getTotalInterviewSalary(applications));
+
+// const getTotalRemoteSalary = (applications: JobApplication[]): number => {
+//   let totalSalary = 0;
+
+//   for (let application of applications) {
+//     if (application.remote) {
+//       totalSalary += application.salary
+//     }
+//   }
+
+//   return totalSalary;
+// };
+
+// console.log(getTotalRemoteSalary(applications));
+
+// const getHighPayingJobs = (applications: JobApplication[]): string[] => {
+//   const positions: string[] = [];
+
+//   for (let application of applications) {
+//     if (application.salary >= 75000) {
+//       positions.push(application.position);
+//     }
+//   }
+
+//   return positions;
+// };
+
+// console.log(getHighPayingJobs(applications));
+
+// const getRemoteCompanyNames = (applications: JobApplication[]): string[] => {
+//   const remoteCompanies: string[] = [];
+
+//   for (let application of applications) {
+//     if (application.remote) {
+//       remoteCompanies.push(application.company);
+//     }
+//   }
+
+//   return remoteCompanies;
+// };
+
+// console.log(getRemoteCompanyNames(applications));
+
+// const getInterviewCount = (applications: JobApplication[]): number => {
+//   let interviewCount = 0;
+
+//   for (let application of applications) {
+//     if (application.status === 'interview') {
+//       interviewCount++;
+//     }
+//   }
+
+//   return interviewCount;
+// }
+
+// console.log(getInterviewCount(applications));
+
+// const getRemoteApplications = (applications: JobApplication[]): number => {
+//   let remoteCount = 0;
+
+//   for (let application of applications) {
+//     if (application.remote) {
+//       remoteCount++;
+//     }
+//   }
+
+//   return remoteCount;
+// };
+
+// console.log(getRemoteApplications(applications));
+
+// type JobStatus = 'applied' | 'interview' | 'rejected' | 'offer';
+
+// type JobApplication = {
+//   id: number;
+//   company: string;
+//   title: string;
+//   salary: number;
+//   remote: boolean;
+//   status: JobStatus;
+//   skills: string[];
+// };
+
+// const applications: JobApplication[] = [
+//   {
+//     id: 1,
+//     company: 'TechNova',
+//     title: 'Junior Front-End Developer',
+//     salary: 62000,
+//     remote: true,
+//     status: 'interview',
+//     skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+//   },
+//   {
+//     id: 2,
+//     company: 'DataForge',
+//     title: 'TypeScript Developer',
+//     salary: 72000,
+//     remote: true,
+//     status: 'applied',
+//     skills: ['JavaScript', 'TypeScript', 'React'],
+//   },
+//   {
+//     id: 3,
+//     company: 'BluePeak',
+//     title: 'Web Developer',
+//     salary: 58000,
+//     remote: false,
+//     status: 'rejected',
+//     skills: ['HTML', 'CSS', 'JavaScript'],
+//   },
+//   {
+//     id: 4,
+//     company: 'CloudWorks',
+//     title: 'Full-Stack Developer',
+//     salary: 78000,
+//     remote: true,
+//     status: 'offer',
+//     skills: ['TypeScript', 'React', 'Node.js', 'Express'],
+//   },
+//   {
+//     id: 5,
+//     company: 'Pixel Labs',
+//     title: 'React Developer',
+//     salary: 68000,
+//     remote: false,
+//     status: 'interview',
+//     skills: ['JavaScript', 'React', 'TypeScript'],
+//   },
+// ];
+
+// const getHighestPayingRemoteJob = (applications: JobApplication[]): JobApplication | undefined => {
+//     let highestPayingJob: JobApplication | undefined;
+
+//     for (let application of applications) {
+//         if (application.remote) {
+//             if (!highestPayingJob || application.salary > highestPayingJob.salary) {
+//                 highestPayingJob = application;
+//             }
+//         }
+//     }
+
+//     return highestPayingJob;
+// };
 
 // const getAverageInterviewSalary = (applications: JobApplication[]): number => {
 //     let totalSalary = 0;
